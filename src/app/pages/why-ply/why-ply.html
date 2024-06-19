@@ -1,0 +1,17 @@
+<ion-content>
+	<div class="container page-scrollable">
+		<app-back-button (click)="goBack()" torgButton="true"></app-back-button>
+		<div class="ply-logo text-align-right">
+			<!-- <img src="/assets/images/ply-logo.svg" /> -->
+		</div>
+		<div class="page-title">{{title}}</div>
+		<div class="content" [innerHTML]="whyPly"></div>
+		<app-ply-life class="text-align-right"></app-ply-life>
+	</div>
+	<app-subscription
+		message="Start your journey."
+		type="noChallenge"
+	></app-subscription>
+</ion-content>
+
+<app-tabs selectedIndex="2" slot="fixed"></app-tabs>

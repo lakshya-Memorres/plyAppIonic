@@ -1,0 +1,8 @@
+<div (click)="goBack()" class="back-button-wrapper">
+	<ng-container *ngIf="torgButton == 'false'">
+		<img src="/assets/icon/back-button-icon.svg" />
+	</ng-container>
+	<ng-container *ngIf="torgButton == 'true'">
+		<img src="/assets/icon/back-button-icon-torg.svg" />
+	</ng-container>
+</div>

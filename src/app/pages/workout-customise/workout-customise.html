@@ -1,0 +1,126 @@
+<ion-content>
+	<app-workout-header
+		workoutUpdated="{{workoutUpdated}}"
+		[workout]="workout"
+		routeOrigin="{{routeOrigin}}"
+	>
+	</app-workout-header>
+	<div>
+		<div class="container">
+			<app-text>
+				<p>
+					<strong>Customise Your Workout.</strong> <br />
+					Drag to <strong>Reorder,</strong> Swipe to
+					<strong>Swap</strong> or <strong>Delete.</strong>
+				</p>
+			</app-text>
+			<ion-spinner *ngIf="loading == true" name="dots"></ion-spinner>
+			<ng-container *ngIf="loading == false">
+				<div
+					class="exercise-list"
+					*ngIf="originalWorkout !== undefined"
+					cdkDropList
+					(cdkDropListDropped)="drop($event)"
+				>
+					<ng-container
+						*ngFor="let excercise of workout.exercises; let i = index;"
+					>
+						<ng-container *ngIf="excercise.superset == true ">
+							<div class="superset" cdkDrag>
+								<app-sliding-exercise-card
+									*ngFor="let excercise of excercise.exercises; let j = index;"
+									(deleteSelectedExercise)="deleteExercise($event)"
+									[supersetIndex]="j"
+									[index]="i"
+									[workout]="workout"
+									[originalWorkout]="originalWorkout"
+									[exercise]="excercise"
+									[userSubscription]="userSubscription"
+									[keyExists]="keyExists"
+								>
+									<div class="card-drag-event" cdkDragHandle>
+										<svg
+											cdkDragHandle
+											xmlns="http://www.w3.org/2000/svg"
+											height="24px"
+											width="24px"
+											viewBox="0 0 24 24"
+											fill="#000000"
+										>
+											<path
+												fill="none"
+												d="M0,0h24v24H0V0z"
+											/>
+											<path
+												d="M12,8c1.1,0,2-0.9,2-2s-0.9-2-2-2s-2,0.9-2,2S10.9,8,12,8z M12,10c-1.1,0-2,0.9-2,2s0.9,2,2,2s2-0.9,2-2S13.1,10,12,10z
+	 M12,16c-1.1,0-2,0.9-2,2s0.9,2,2,2s2-0.9,2-2S13.1,16,12,16z"
+											/>
+										</svg>
+									</div>
+								</app-sliding-exercise-card>
+							</div>
+						</ng-container>
+						<ng-container *ngIf="excercise.superset == false ">
+							<app-sliding-exercise-card
+								(deleteSelectedExercise)="deleteExercise($event)"
+								[index]="i"
+								[workout]="workout"
+								[originalWorkout]="originalWorkout"
+								[exercise]="excercise"
+								[userSubscription]="userSubscription"
+								[keyExists]="keyExists"
+								cdkDrag
+							>
+								<div class="card-drag-event">
+									<svg
+										cdkDragHandle
+										xmlns="http://www.w3.org/2000/svg"
+										height="24px"
+										width="24px"
+										viewBox="0 0 24 24"
+										fill="#000000"
+									>
+										<path fill="none" d="M0,0h24v24H0V0z" />
+										<path
+											d="M12,8c1.1,0,2-0.9,2-2s-0.9-2-2-2s-2,0.9-2,2S10.9,8,12,8z M12,10c-1.1,0-2,0.9-2,2s0.9,2,2,2s2-0.9,2-2S13.1,10,12,10z
+	 M12,16c-1.1,0-2,0.9-2,2s0.9,2,2,2s2-0.9,2-2S13.1,16,12,16z"
+										/>
+									</svg>
+								</div>
+							</app-sliding-exercise-card>
+						</ng-container>
+					</ng-container>
+					<ng-container *ngIf="workout.exercises == null ">
+						<p class="text-align-center">No Exercises Selected</p>
+					</ng-container>
+				</div>
+				<div class="inline-flex favourite">
+					<div
+						*ngIf="workout.is_favourite == true"
+						class="favourites-button"
+						(click)="removeFavourite()"
+					>
+						<div class="text-underline">Favourites</div>
+						<span> -</span>
+					</div>
+					<div
+						*ngIf="workout.is_favourite == false"
+						class="favourites-button"
+						(click)="addFavourite()"
+					>
+						<div class="text-underline">Favourites</div>
+						<img src="/assets/icon/plus-icon.svg" />
+					</div>
+				</div>
+				<div class="add-exercies">
+					<div class="add-button" (click)="goToAddExercise()">
+						<div class="text-underline">Add Exercise</div>
+						<img src="/assets/icon/plus-icon.svg" />
+					</div>
+				</div>
+				<app-button (click)="goToCurrentWorkout()">Workout</app-button>
+			</ng-container>
+			<app-ply-life class="text-align-right"></app-ply-life>
+		</div>
+	</div>
+</ion-content>

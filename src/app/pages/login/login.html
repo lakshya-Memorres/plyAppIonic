@@ -1,0 +1,69 @@
+<ion-content>
+	<div class="container page-scrollable">
+		<div>
+			<div class="ply-logo">
+				<img src="/assets/images/ply-logo.svg" />
+			</div>
+			<div class="page-title">Log In.</div>
+		</div>
+		<div>
+			<div class="form-container">
+				<form #loginForm="ngForm">
+					<div class="form-group" [ngClass]="{'validation-error' : this.validationErrors.errors.email.length !== 0}">
+						<label>Email.</label>
+						<div class="form-input">
+							<input
+								type="email"
+								name="email"
+								placeholder="patricksanders@gmail.com"
+								[(ngModel)]="email"
+								#emailInput
+								autocomplete="username"
+								(change)="loginForm.controls['email'].setValue($event.target.value)"
+							/>
+						</div>
+						<div class="validation-error-message">
+							{{validationErrors.errors.email}}
+						</div>
+					</div>
+					<div class="form-group" [ngClass]="{'validation-error' : this.validationErrors.errors.password.length !== 0}">
+						<label>Password.</label>
+						<div class="form-input">
+							<input
+								type="password"
+								name="password"
+								placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
+								[(ngModel)]="password"
+								autocomplete="password"
+								(change)="loginForm.controls['password'].setValue($event.target.value)"
+							/>
+						</div>
+						<div class="validation-error-message">
+							{{validationErrors.errors.password}}
+						</div>
+					</div>
+					<div class="form-submit">
+						<button (click)="login()">
+							<img src="/assets/icon/login-to-ply-icon.svg" />
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="flex-grow">
+			<form class="no-margin-top">
+				<div class="forgot-password form-additional-action">
+					<a class="underlined-link" (click)="goToForgotPassword()"
+						>Forgot Password?</a
+					>
+				</div>
+				<div class="form-additional-action">
+					<a class="underlined-link" (click)="goToRegister()"
+						>Register to explore.</a
+					>
+				</div>
+			</form>
+		</div>
+		<app-ply-life class="text-align-right"></app-ply-life>
+	</div>
+</ion-content>

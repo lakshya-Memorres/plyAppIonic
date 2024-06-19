@@ -1,0 +1,13 @@
+<div class="back-button" (click)="clearSelectedSubLevel()">back.</div>
+<app-category-card
+	*ngFor="let category of subCategories; let i = index"
+	[category]="category"
+	(click)="parentGetCategories(category)"
+></app-category-card>
+<app-exersice-card
+	*ngFor="let exercise of exercises; let i = index"
+	[exercise]="exercise"
+	[workoutID]="workoutID"
+	(presentSetOptions)="presentSetOptions(exercise)"
+>
+</app-exersice-card>

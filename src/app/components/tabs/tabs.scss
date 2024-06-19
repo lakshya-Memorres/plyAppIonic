@@ -1,0 +1,40 @@
+@import "../../../theme/utilities/mixins";
+
+ion-tab-bar {
+	background-color: var(--ion-color-primary-shade);
+	//@include rgba-background(#32383a, 0.15);
+	//@include rgba-border(#32383a, 0.15);
+	padding: 15px 0 6px 0;
+	height: 60px;
+	padding-bottom: max(8px, env(safe-area-inset-bottom));
+	border-top: none;
+	margin-bottom: -12px;
+	ion-tab-button {
+		font-weight: 500;
+		font-size: 8.59px;
+		color: var(--text-color);
+		flex: none;
+		width: 73px;
+		margin: 0 !important;
+		transition: all 0.2s ease-in-out;
+		.active {
+			font-weight: bold;
+		}
+		img {
+			height: 35px;
+			max-width: 35px;
+			margin-bottom: 8px;
+		}
+		&.active {
+			font-weight: bold;
+		}
+	}
+	#tab-button-more {
+		img {
+			margin-right: -11px;
+		}
+	}
+	.my-ply {
+		margin: 0 15px;
+	}
+}

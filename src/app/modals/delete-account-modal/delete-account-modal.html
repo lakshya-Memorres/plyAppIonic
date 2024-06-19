@@ -1,0 +1,28 @@
+<ion-header>
+	<ion-toolbar>
+		<div class="ply-logo text-align-right">
+			<img src="/assets/images/ply-logo.svg" />
+		</div>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="container content ion-text-center">
+		<div class="modal-content-title">{{title}}</div>
+		<div class="modal-content-text">
+			{{description}}
+		</div>
+	</div>
+</ion-content>
+
+<ion-footer>
+	<div class="buttons">
+		<ng-container *ngIf="userSubscription == 1">
+			<div (click)="goToSubcriptionManagement()">Manage</div>
+		</ng-container>
+		<ng-container *ngIf="userSubscription !== 1">
+			<div (click)="confirmAccountDelete()">Confirm</div>
+		</ng-container>
+		<div (click)="dismiss()">Cancel</div>
+	</div>
+</ion-footer>

@@ -1,0 +1,14 @@
+.page-scrollable {
+	min-height: auto;
+}
+.back-button {
+	margin: 0 0 16px 0;
+	font-size: 11px;
+	font-weight: bold;
+	display: flex;
+	flex-direction: row;
+	color: var(--text-color);
+	align-items: center;
+	text-decoration: underline;
+	cursor: pointer;
+}

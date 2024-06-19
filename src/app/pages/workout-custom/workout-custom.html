@@ -1,0 +1,50 @@
+<ion-content>
+	<div class="container page-scrollable">
+		<app-back-button></app-back-button>
+		<div class="ply-logo text-align-right">
+			<img src="/assets/images/ply-logo.svg" />
+		</div>
+		<div class="page-title">My Custom Workouts</div>
+		<app-text>
+			<div [innerHTML]="description"></div>
+		</app-text>
+		<ion-spinner *ngIf="loading == true" name="dots"></ion-spinner>
+		<ng-container *ngIf="loading == false">
+			<div
+				*ngIf="workoutCategoryName !== 'Free Workouts'"
+				class="exercise-filter"
+			>
+				<div class="title">Review by Category:</div>
+				<ul>
+					<li
+						*ngFor="let category of categroies"
+						(click)="showActivity(category)"
+						[class.active]="selectedCategory == category"
+					>
+						{{category}}.
+					</li>
+				</ul>
+			</div>
+			<ion-spinner
+				*ngIf="categoryLoading == true"
+				name="dots"
+			></ion-spinner>
+			<ng-container *ngIf="categoryLoading == false">
+				<app-workout-card
+					(click)="goToWorkout(workout)"
+					*ngFor="let workout of workouts; let i = index"
+					[workout]="workout"
+					[class.show]="workout.workout_category.name === selectedCategory || selectedCategory === 'All' "
+					[userSubscription]="userSubscription"
+					[keyExists]="keyExists"
+				></app-workout-card>
+			</ng-container>
+		</ng-container>
+		<!-- <app-ply-life class="text-align-right ion-padding-top"></app-ply-life> -->
+	</div>
+	<ng-container *ngIf="loading == false">
+		<app-subscription type="noChallenge" [userSubscription]="userSubscription" [keyExists]="keyExists"></app-subscription>
+	</ng-container>
+</ion-content>
+
+<app-tabs selectedIndex="0" slot="fixed"></app-tabs>

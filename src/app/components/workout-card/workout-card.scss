@@ -1,0 +1,11 @@
+:host {
+	animation: fadeIn ease 500ms;
+	transition: all 0.2s ease;
+	.card {
+		ul {
+			&.card-content-list {
+				font-size: 10.25px;
+			}
+		}
+	}
+}

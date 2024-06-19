@@ -1,0 +1,36 @@
+<ion-content>
+	<div class="container page-scrollable">
+		<app-back-button (click)="goBack()" torgButton="true"></app-back-button>
+		<div class="ply-logo text-align-right">
+			<img src="/assets/images/ply-logo.svg" />
+		</div>
+		<div class="page-title">Help and Support.</div>
+		<div class="content">
+			<ion-spinner *ngIf="loading == true" name="dots"></ion-spinner>
+			<ng-container *ngIf="loading == false">
+
+				<div
+					class="question"
+					*ngFor="let question_answer of question_answers; let i =
+					index"
+					(click)="toggleActiveQuestion(question_answer.question, i,  $event)"
+				>
+					<p class="question-header">
+						<strong>{{question_answer.question}}</strong>
+						<img *ngIf="!activeQuestions.includes(question_answer.question)" [ngClass]="{'activeIcon': !activeQuestions.includes(question_answer.question) }" src="../../../assets/icon/plus-icon.png" />
+						<img *ngIf="activeQuestions.includes(question_answer.question)"  [ngClass]="{'activeIcon': activeQuestions.includes(question_answer.question) }" src="../../../assets/icon/minus-icon.png" />
+					</p>
+					<div
+						class="content"
+						[ngClass]="{'questionActive': activeQuestions.includes(question_answer.question)}"
+						[innerHTML]="question_answer.answer"
+					></div>
+				</div>
+			</ng-container>
+		</div>
+		<app-contact-us torgButton="true"></app-contact-us>
+		<app-ply-life class="text-align-right ion-margin-top"></app-ply-life>
+	</div>
+</ion-content>
+
+<app-tabs selectedIndex="2" slot="fixed"></app-tabs>

@@ -1,0 +1,43 @@
+<div class="workout-header-container">
+	<div class="container">
+		<ng-container *ngIf="workoutUpdated == 'true'">
+			<div
+				class="cancel-workout"
+				(click)="confirmCancelWorkout(workoutName)"
+			>
+				<img src="/assets/icon/back-button-icon.svg" />
+			</div>
+		</ng-container>
+		<ng-container *ngIf="workoutUpdated == 'false'">
+			<app-back-button></app-back-button>
+		</ng-container>
+		<div class="ply-logo text-align-right">
+			<img src="/assets/images/ply-logo.svg" />
+		</div>
+		<div class="workout-header">
+			<div class="workout-header-title">
+				<strong>{{workout.name}}</strong>
+			</div>
+			<hr />
+			<div class="workout-header-meta">
+				<div class="workout-category">
+					<strong>{{workout.top_level_category.name}}. </strong>
+					<span>{{workout.workout_category.name}}</span>
+				</div>
+				<div class="workout-intensity-time">
+					<div class="intensity-level">
+						<ul
+							class="intensity-level-rating level-{{workout.intensity}}"
+						>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+						<span class="intensity-level-label"> Intensity </span>
+					</div>
+					<div class="time">{{workout.duration_in_mins}}'</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

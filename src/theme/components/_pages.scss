@@ -1,0 +1,46 @@
+app-workout-page {
+	app-category-slider {
+		padding: 0 10px;
+	}
+	.category-slider-header-title {
+		font-size: 16px;
+	}
+	.category-slider-header-link {
+		display: none;
+	}
+}
+
+app-dashboard-page, app-workout-page {
+	app-category-slider {
+		overflow: hidden;
+		margin-top: 30px;
+	}
+	.category-slider-wrapper {
+		padding-left: 32px;
+
+		.category-slider-card {
+			&:first-child {
+				margin-left: 16px;
+			}
+
+			&:last-child {
+				margin-right: 20px;
+			}
+		}
+
+		.is_singular {
+			margin-right: 30px !important;
+		}
+
+	}
+}
+
+app-workout-page {
+	.category-slider {
+		&-header {
+			&-title {
+				margin-bottom: 14px;
+			}
+		}
+	}
+}

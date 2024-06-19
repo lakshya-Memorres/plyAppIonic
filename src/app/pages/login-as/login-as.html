@@ -1,0 +1,46 @@
+<ion-content>
+	<div class="container page-scrollable">
+		<div>
+			<div class="ply-logo text-align-right">
+				<img src="/assets/images/ply-logo.svg" />
+			</div>
+			<div class="page-title">Log As.</div>
+		</div>
+		<div>
+			<div class="form-container">
+				<form #loginForm="ngForm">
+					<div class="form-group" [ngClass]="{'validation-error' : this.validationErrors.errors.email.length !== 0}">
+						<label>Email.</label>
+						<div class="form-input">
+							<input
+								type="email"
+								name="email"
+								placeholder="patricksanders@gmail.com"
+								[(ngModel)]="email"
+								#emailInput
+								autocomplete="username"
+								(change)="loginForm.controls['email'].setValue($event.target.value)"
+							/>
+						</div>
+						<div class="validation-error-message">
+							{{validationErrors.errors.email}}
+						</div>
+					</div>
+					<div class="form-submit">
+						<button (click)="loginAs()">
+							<img src="/assets/icon/login-to-ply-icon.svg" />
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="flex-grow">
+			<form class="no-margin-top">
+				<div class="forgot-password form-additional-action">
+					<a class="underlined-link" (click)="cancel()">Cancel</a>
+				</div>
+			</form>
+		</div>
+		<app-ply-life class="text-align-right"></app-ply-life>
+	</div>
+</ion-content>

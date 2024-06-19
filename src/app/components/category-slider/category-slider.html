@@ -1,0 +1,33 @@
+<div class="category-slider">
+	<div class="category-slider-header container">
+		<div class="category-slider-header-title">{{workoutCategory.name}}</div>
+		<div class="category-slider-header-link">
+			<a (click)="goToCategory()">See all</a>
+		</div>
+	</div>
+	<div class="category-slider-wrapper">
+		<ng-container *ngFor="let workout of workouts; let i=index">
+			<a
+				(click)="goToWorkout(workout)"
+				class="category-slider-card"
+				[ngClass]="{'is_premium' : userSubscription == null && workout.is_premium == 1 || userSubscription == 0 && workout.is_premium == 1 }"
+			>
+				<div
+					class="category-slider-card-image"
+					style="background-image: url('{{workout.images.card}}')"
+				></div>
+				<!-- <div class="category-slider-card-image" style="background-image: url('/assets/images/killing-that-kettlebell-workout.jpg')"></div> -->
+				<div class="category-slider-card-content">
+					<h2 class="category-slider-card-content-title">
+						<strong>{{workout.name}}</strong>
+					</h2>
+					<div class="category-slider-card-content-subtitle">
+						<strong>{{workout.top_level_category.name}}.</strong>
+						<span>{{workout.workout_category.name}}</span>
+					</div>
+				</div>
+			</a>
+		</ng-container>
+		<div class="spacer"></div>
+	</div>
+</div>

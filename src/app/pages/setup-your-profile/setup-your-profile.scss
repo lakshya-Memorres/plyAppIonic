@@ -1,0 +1,55 @@
+@import '../../../theme/utilities/mixins';
+
+:host {
+	ion-content {
+		--background: var(--ion-color-secondary) !important;
+	}
+	.page {
+		height: unset;
+	}
+	form {
+		margin-left: -12px;
+		margin-top: 40px;
+		flex-grow: 1;
+		.validation-units-message {
+			display: none;
+			&.visible {
+				margin: -10px auto 20px auto;
+				display: block;
+			}
+		}
+		.form-group {
+			.form-message {
+				margin: -13px 0 0 0;
+			}
+		}
+		select{
+			&.placeholder{
+				color:rgba(50, 56, 58, 0.15);
+			}
+			option:disabled{
+				color:rgba(50, 56, 58, 0.15);
+			}
+		}
+		input::placeholder {
+			color:rgba(50, 56, 58, 0.15);
+		}
+
+		hr{
+			width: 45%;
+			margin-top: 20px;
+		}
+
+		.form-submit {
+			margin-top: 50px;
+			margin-bottom: 85px;
+			button {
+				img {
+					height: 25px;
+				}
+			}
+		}
+
+		button{padding-left: 10px;}
+	}
+}

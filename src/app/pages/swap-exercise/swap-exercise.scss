@@ -1,0 +1,88 @@
+@import "../../../theme/utilities/mixins";
+
+.has-timer {
+	padding-bottom: 215px;
+}
+
+.page-scrollable {
+	min-height: auto;
+}
+
+app-dropdown-exersice-card {
+	margin-bottom: 10px;
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.mainContent {
+	margin-bottom: -20px;
+}
+
+.exercise-being-swapped {
+	position: relative;
+	bottom: 50px;
+	.selected {
+		.card-media {
+			.video {
+				opacity: 1 !important;
+			}
+		}
+	}
+	.workout-header-text {
+		font-size: 11.2px;
+		font-weight: 600;
+	}
+	.confirm-swap {
+		margin-top: 42px;
+		//margin-bottom: 75px;
+		.inline-flex {
+			align-items: center;
+		}
+		svg {
+			margin-left: 8px;
+			width: 20px;
+		}
+		hr {
+			margin: 26px auto;
+			width: 60%;
+			left: 0;
+			right: 0;
+		}
+		.favourites-button {
+			margin-left: 20px;
+			margin-top: -4px;
+		}
+	}
+}
+
+.swap-options {
+	bottom: 34px;
+	position: relative;
+	hr {
+		width: 90%;
+		margin: auto;
+		left: 0;
+		right: 0;
+		//margin-top: 20px;
+		margin-top: 41px;
+		&.ion-margin-bottom {
+			margin-bottom: 30px;
+		}
+	}
+
+	.swap-section-title {
+		font-size: 12.7px;
+		margin-bottom: 20px;
+	}
+}
+
+.swappedExercise {
+	.card-content {
+		background-color: #ccc;
+	}
+}
+
+//app-ply-life{
+//	margin-bottom: 15px;
+//}

@@ -1,0 +1,84 @@
+@import "../../../theme/utilities/mixins";
+
+:host {
+	app-button {
+		margin-top: 50px;
+		margin-bottom: 80px;
+	}
+	app-text {
+		margin-top: 16px;
+	}
+	.exercise-list {
+		display: block;
+		overflow: hidden;
+	}
+	app-sliding-exersice-card {
+		margin-bottom: 10px;
+		&.swapped {
+			margin-top: -20px;
+			&:before {
+				display: inline-block;
+				content: "";
+				width: 10px;
+				height: 20px;
+				background-image: url("/assets/icon/swap-icon.svg");
+				background-repeat: no-repeat;
+				float: right;
+				position: relative;
+				left: 20px;
+				top: 47px;
+			}
+		}
+	}
+	.add-exercies {
+		margin-top: 42px;
+		.inline-flex {
+			align-items: center;
+		}
+		hr {
+			// max-width: 158px;
+			margin: 0 0 0 auto;
+		}
+		.favourites-button {
+			margin-left: 20px;
+			margin-top: -1px;
+		}
+	}
+}
+
+.superset {
+	margin-bottom: 16px;
+	> * {
+		position: relative;
+		margin-bottom: 4px !important;
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.cdk-drag-preview {
+	box-sizing: border-box;
+	border-radius: 40px;
+	box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+		0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+	opacity: 0;
+}
+
+/* Animate items as they're being sorted. */
+.cdk-drop-list-dragging .cdk-drag {
+	transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* Animate an item that has been dropped. */
+.cdk-drag-animating {
+	transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.exercise-list.cdk-drop-list-dragging
+	.exercise-list:not(.cdk-drag-placeholder) {
+	transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

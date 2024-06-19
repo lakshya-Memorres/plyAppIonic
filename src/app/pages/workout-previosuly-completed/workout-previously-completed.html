@@ -1,0 +1,127 @@
+<ion-content>
+	<div class="workout-header">
+		<div class="container">
+			<app-back-button></app-back-button>
+			<div class="ply-logo text-align-right">
+				<img src="/assets/images/ply-logo.svg" />
+			</div>
+			<div class="page-title">Completed.</div>
+			<app-text>
+				<p>
+					<ng-container *ngIf="completedWorkout.workout_finished">
+						Workout completed
+						<strong>
+							{{formatDate(completedWorkout.workout_finished)}}.
+						</strong>
+					</ng-container>
+					<br />
+					Workout duration
+					<strong> {{workout.duration_in_mins}}'</strong>
+				</p>
+				<hr class="ion-margin-bottom ion-margin-top" />
+			</app-text>
+			<div class="workout-header-title">
+				<strong>{{workout.name}}</strong>
+			</div>
+			<hr class="sep" />
+			<div class="workout-header-meta">
+				<div class="workout-category">
+					<strong>{{workout.top_level_category.name}}. </strong>
+					<span>{{workout.workout_category.name}}</span>
+				</div>
+				<div class="workout-intensity-time">
+					<div class="intensity-level">
+						<ul
+							class="intensity-level-rating level-{{workout.intensity}}"
+						>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+						<span class="intensity-level-label"> Intensity </span>
+					</div>
+					<div class="time">{{workout.duration_in_mins}}'</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<app-text class="exercise-title">
+			<p>Tap for <strong>Exercise Data Details.</strong></p>
+		</app-text>
+		<app-text>
+			<!-- <ng-container *ngIf="workout.rounds == 1 ">
+				<div class="rounds-input-group">
+					<label>Rounds</label>
+					<div class="input">
+						<div class="rounds">{{workout.rounds}}</div>
+					</div>
+				</div>
+			</ng-container> -->
+			<ng-container
+				*ngIf="workout.type == 'Circuit' && workout.rounds > 1"
+			>
+				<div class="rounds-input-group">
+					<label>Rounds</label>
+					<div class="current-rounds">
+						<!-- <input type="number" value="5"> -->
+						<div class="currentRounds">{{currentRound}}</div>
+						of
+						<div class="rounds">{{workout.rounds}}</div>
+					</div>
+				</div>
+			</ng-container>
+		</app-text>
+		<ng-container
+			*ngFor="let round of workout.exercisesFormatted; let roundNumber = index"
+		>
+			<app-workout-round
+				[ngClass]="{'showRound' : roundNumber == currentRoundIndex}"
+			>
+				<ng-container *ngFor="let excercise of round ; let i = index">
+					<ng-container *ngIf="excercise.superset == true ">
+						<div class="superset">
+							<app-dropdown-exersice-card
+								(saveSelectedExerciseProgress)="saveSelectedExerciseProgress($event)"
+								*ngFor="let excercise of excercise.exercises; let j = index;"
+								[index]="i"
+								[supersetIndex]="j"
+								[exercise]="excercise"
+								[unit]="unit"
+								[workoutID]="workout.id"
+								[historyCard]="true"
+							></app-dropdown-exersice-card>
+						</div>
+					</ng-container>
+					<ng-container *ngIf="excercise.superset == false ">
+						<app-dropdown-exersice-card
+							(saveSelectedExerciseProgress)="saveSelectedExerciseProgress($event)"
+							[index]="i"
+							[exercise]="excercise"
+							[unit]="unit"
+							[workoutID]="workout.id"
+							[historyCard]="true"
+						></app-dropdown-exersice-card>
+					</ng-container>
+				</ng-container>
+			</app-workout-round>
+		</ng-container>
+		<div
+			class="rounds-navigation"
+			*ngIf="workout.type == 'Circuit' && workout.rounds > 1"
+		>
+			<app-button *ngIf="currentRound > 1" (click)="goToPrevRound()">
+				Prev Round
+			</app-button>
+			<app-button
+				*ngIf="currentRound < workout.rounds"
+				(click)="goToNextRound()"
+			>
+				Next Round
+			</app-button>
+		</div>
+		<app-button (click)="repeatWorkout()">Repeat Workout</app-button>
+		<app-ply-life class="text-align-right"></app-ply-life>
+	</div>
+</ion-content>
+<app-tabs selectedIndex="1" slot="fixed"></app-tabs>

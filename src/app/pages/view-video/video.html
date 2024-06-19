@@ -1,0 +1,23 @@
+<ion-content>
+	<div class="page" [ngClass]="{'landscape': isFullScreen === true}">
+		<div class="container">
+			<app-back-button (click)="goBack()"></app-back-button>
+		</div>
+		<div class="ply-logo text-align-right">
+			<img src="/assets/images/ply-logo.svg" />
+		</div>
+		<div class="video">
+			<plyr
+				plyrTitle="Video 1"
+				plyrCrossOrigin="true"
+				[plyrSources]="videoSources"
+				(plyrInit)="player = $event"
+				(plyrPlay)="played($event)"
+			></plyr>
+		</div>
+
+		<div class="container">
+			<app-ply-life class="text-align-right"></app-ply-life>
+		</div>
+	</div>
+</ion-content>

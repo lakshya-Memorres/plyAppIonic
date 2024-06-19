@@ -1,0 +1,32 @@
+<ion-header>
+	<ion-toolbar>
+		<div class="close" (click)="dismiss()">close</div>
+		<div class="ply-logo text-align-right">
+			<img src="/assets/icon/ply-icon-white.svg" />
+		</div>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+	<ng-container *ngIf="!keyExists">
+		<div class="container content ion-text-center">
+			<div class="modal-content-title">
+				Unfortunately, this is a Premium Feature.
+			</div>
+			<div class="modal-content-text">
+				Available to subscription users only.
+				<img
+					class="ion-text-center"
+					src="/assets/icon/subscribe-to-ply.svg"
+					(click)="subscribe()"
+				/>
+			</div>
+		</div>
+	</ng-container>
+	<ng-container *ngIf="keyExists">
+		<div class="container content ion-text-center">
+			<div class="modal-content-title">
+				You currently logged in as another user. You cannot subscribe at the momment.
+			</div>
+		</div>
+	</ng-container>
+</ion-content>

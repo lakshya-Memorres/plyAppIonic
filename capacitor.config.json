@@ -1,0 +1,24 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "ply-app-new",
+	"bundledWebRuntime": false,
+	"npmClient": "npm",
+	"webDir": "www",
+	"plugins": {
+		"SplashScreen": {
+			"launchShowDuration": 0
+		}
+	},
+	"cordova": {
+		"preferences": {
+			"ScrollEnabled": "false",
+			"BackupWebStorage": "none",
+			"SplashMaintainAspectRatio": "true",
+			"FadeSplashScreenDuration": "300",
+			"SplashShowOnlyFirstTime": "false",
+			"SplashScreen": "screen",
+			"SplashScreenDelay": "5000",
+			"APP_ID": "424885708601384"
+		}
+	}
+}

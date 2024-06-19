@@ -1,0 +1,80 @@
+@import "../../../theme/utilities/mixins";
+
+.subscription {
+	background-color: var(--ion-color-tertiary);
+	padding: 40px 40px 40px 40px;
+	position: relative;
+	&.free-account {
+		padding: 40px;
+		.subscribe-to-ply-btn {
+			margin-bottom: 22px;
+		}
+	}
+	.challenge-icon {
+		text-align: right;
+		margin-bottom: 36px;
+		margin-top: -24px;
+		img {
+			width: 133px;
+			margin-right: -21px;
+		}
+	}
+	.ply-icon {
+		text-align: right;
+		margin-bottom: 24px;
+		display: none;
+		img {
+			height: 12px;
+		}
+	}
+	.ply-graphic {
+		text-align: center;
+		margin-bottom: 15px;
+		img {
+			width: 160px;
+		}
+	}
+	.no-margin {
+		margin-bottom: 0;
+	}
+	.text-align-right {
+		position: absolute;
+		right: 16px;
+		bottom: 14px;
+	}
+	.subscribe-to-ply-btn {
+		display: block;
+		width: 100%;
+		text-align: center;
+		background-color: transparent;
+		margin-bottom: 0;
+		img {
+			max-width: 250px;
+		}
+	}
+	.subscribe-to-ply-btn-small {
+		display: block;
+		width: 100%;
+		text-align: center;
+		background-color: transparent;
+		margin-bottom: 0;
+		img {
+			max-width: 50px;
+		}
+	}
+	p {
+		text-align: center;
+		color: var(--ion-color-primary);
+		font-size: 12.9px;
+		margin: 0;
+		strong {
+			display: block;
+			margin: 0 0 7.5px 0;
+			&.underlined-link {
+				display: inline-block;
+				padding-left: 4px;
+				color: var(--ion-color-primary);
+			}
+		}
+	}
+}

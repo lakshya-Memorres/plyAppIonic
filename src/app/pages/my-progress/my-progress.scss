@@ -1,0 +1,41 @@
+@import '../../../theme/utilities/mixins';
+
+:host {
+
+	.page {
+		height: unset;
+	}
+
+	.page-subtitle{
+		font-size: 12.1px;
+		margin-top: 10px;
+	}
+
+	hr{
+		&.ion-margin-bottom{
+			margin-bottom: var(--ion-margin, 26px);
+		}
+
+		&.ion-margin-top{
+
+			margin-top: var(--ion-margin, 33px);
+
+		}
+
+	}
+
+	.category-wrapper {
+		display: none;
+	}
+
+	.show {
+		display: block;
+	}
+
+	app-ply-life{
+		&.ion-margin-top{
+			margin-top: 57px;
+		}
+	}
+
+}

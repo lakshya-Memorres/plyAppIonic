@@ -1,0 +1,11 @@
+<div class="logged-in-as" [ngClass]="{'isOpen' : isOpen}" (click)="toggleLoggedInAs()">
+	<div class="logged-in-as-icon">
+		<img src="/assets/icon/leader-icon.svg" />
+	</div>
+	<div class="logged-in-as-user" [ngClass]="{'visable' : isOpen}" *ngIf="user && user.email">
+    	Your currently logged in {{this.user.email}}.
+	</div>
+	<div class="logged-in-as-exit" [ngClass]="{'visable' : isOpen}" (click)="logoutAltUser()">
+		<img src="/assets/icon/logout-icon.svg" />
+	</div>
+</div>

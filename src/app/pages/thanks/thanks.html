@@ -1,0 +1,27 @@
+<ion-content>
+	<div class="container page-scrollable">
+		<app-back-button (click)="goBack()"></app-back-button>
+		<div class="ply-logo text-align-right">
+			<img src="/assets/images/ply-logo.svg" />
+		</div>
+		<div class="page-title">Thanks!</div>
+		<div class="content">
+			<p>
+				You’re all set. To update your profile tap My Ply or to jump
+				straight in tap the workout section. Enjoy.
+			</p>
+			<div class="text-align-center">
+				<img
+					class="challenge-yourself-image"
+					src="/assets/icon/your-journey-begins.svg"
+				/>
+			</div>
+		</div>
+		<div class="page-footer">
+			<a>Cancel Subscription</a>
+			<app-ply-life class="text-align-right"></app-ply-life>
+		</div>
+	</div>
+</ion-content>
+
+<app-tabs selectedIndex="2" slot="fixed"></app-tabs>

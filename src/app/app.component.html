@@ -1,0 +1,5 @@
+<ion-app [ngClass]="{'free-account' : userSubscription == false}">
+  <ion-router-outlet [swipeGesture]="false"></ion-router-outlet>
+  <app-logged-in-as-component *ngIf="keyExists" [user]="user"></app-logged-in-as-component>
+</ion-app>
+

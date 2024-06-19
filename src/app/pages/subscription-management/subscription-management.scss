@@ -1,0 +1,27 @@
+@import "../../../theme/utilities/mixins";
+
+:host {
+	ion-content {
+		--background: var(--ion-color-secondary) !important;
+		.page-title {
+			margin-bottom: 20px;
+		}
+		.content {
+			font-size: 13.2px;
+			p {
+				color: var(--text-color);
+			}
+			.light {
+				opacity: 1;
+			}
+			.manage-sub-link {
+				text-transform: uppercase;
+				font-weight: bold;
+				display: block;
+				text-align: right;
+				color: var(--text-color);
+				margin-top: 32px;
+			}
+		}
+	}
+}

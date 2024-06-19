@@ -1,0 +1,74 @@
+<ion-item>
+	<div
+		class="card"
+		[ngClass]="{'originalExercise' : originalExercise != null, 'currentlySelectedSwap' : currentlySelectedSwap}"
+	>
+		<ng-container *ngIf="originalExercise != null">
+			<div class="flex-row">
+				<div class="card-media">
+					<div
+						class="video"
+						(click)="goToVideo('originalExercise')"
+						style="background-image: url('{{originalExercise.image_url}}')"
+					>
+						<img src="/assets/icon/play-button-icon.svg" />
+					</div>
+				</div>
+				<div class="card-content" (click)="swapToOriginal()">
+					<div class="card-content-title">
+						{{ originalExercise.name }}
+					</div>
+					<div class="card-content-rep-list" *ngIf="originalExercise.sets">
+						<ng-container *ngIf="textOverwriteEnabled == true">
+							<span class="rep">{{textOverwriteValue}}</span>
+						</ng-container>
+						<ng-container *ngIf="textOverwriteEnabled == false">
+							<ng-container
+								*ngFor="let key of cardKeys let i = index;"
+							>
+								<span class="rep">{{key}}</span>
+								<ng-container *ngIf="i + 1 != cardKeys.length">
+									<span class="sep">-</span>
+								</ng-container>
+							</ng-container>
+						</ng-container>
+						<ng-container *ngIf="originalExercise.type == '1RM'">
+							<span class="sep-rm">|</span>
+							<span class="rep-max">1RM</span>
+						</ng-container>
+					</div>
+				</div>
+			</div>
+		</ng-container>
+		<ng-container *ngIf="suggestion">
+			<div class="flex-row">
+				<div class="card-media" (click)="goToVideo('suggestion')">
+					<div
+						class="video"
+						style="background-image: url('{{ suggestion.exercise.image_url }}')"
+					>
+						<img src="/assets/icon/play-button-icon.svg" />
+					</div>
+					<!-- <div class="image" style="background-image: url('{{ suggestion.exercise.image_url }}')"></div> -->
+					<!-- <div class="play-icon">
+					<img [ngClass]="{'hide' : userSubscription}" src="/assets/icon/play-button-icon.svg" />
+					<img [ngClass]="{'hide' : !userSubscription}" src="/assets/icon/swap-free-button.svg" />
+				</div> -->
+				</div>
+				<div class="card-content" (click)="swapExercise()">
+					<div class="card-content-title">
+						{{ suggestion.exercise.name }}
+					</div>
+					<div class="card-content-subtitle">
+						<ng-container *ngIf="suggestion.type == 'progressive'">
+							Progression Scale + {{suggestion.index}}
+						</ng-container>
+						<ng-container *ngIf="suggestion.type == 'regressive'">
+							Regression Scale {{suggestion.index}}
+						</ng-container>
+					</div>
+				</div>
+			</div>
+		</ng-container>
+	</div>
+</ion-item>

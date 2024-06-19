@@ -1,0 +1,111 @@
+<ion-content>
+	<div class="container-no-padding page-scrollable">
+		<div class="container">
+			<div class="ply-logo text-align-right">
+				<img src="/assets/images/ply-logo.svg" />
+			</div>
+			<div class="page-title">My Ply.</div>
+			<div class="content">
+				<p>
+					Build your workout library. Access your favourite workouts.
+					Track your workout history. Check your personal bests.
+				</p>
+			</div>
+		</div>
+		<div class="more-workouts">
+			<div class="main-slider">
+				<div class="main-slider-wrapper">
+					<a
+						(click)="myHistory()"
+						class="main-slider-card"
+						[ngClass]="{'is_premium' : userSubscription == null || userSubscription == 0 }"
+					>
+						<div
+							class="main-slider-card-image"
+							style="
+								background-image: url('/assets/images/my_ply_history_cover.jpg');
+							"
+						></div>
+						<div class="main-slider-card-content">
+							<h2 class="main-slider-card-content-title">
+								<strong>History.</strong>
+							</h2>
+							<!-- <p class="main-slider-card-content-subtitle">
+								Review progress, assess your training examine
+								your results, train smarter.
+							</p> -->
+						</div>
+					</a>
+					<a
+						(click)="myFavourites()"
+						class="main-slider-card"
+						[ngClass]="{'is_premium' : userSubscription == null || userSubscription == 0  }"
+					>
+						<div
+							class="main-slider-card-image"
+							style="
+								background-image: url('/assets/images/my_ply_favourites_cover.jpg');
+							"
+						></div>
+						<div class="main-slider-card-content">
+							<h2 class="main-slider-card-content-title">
+								<strong>Favourites.</strong>
+							</h2>
+							<!-- <p class="main-slider-card-content-subtitle">
+								Solid set of favourites, the cornerstone of
+								successful training, this is your playbook.
+							</p> -->
+						</div>
+					</a>
+					<a
+						(click)="myProgress()"
+						class="main-slider-card"
+						[ngClass]="{'is_premium' : userSubscription == null || userSubscription == 0 }"
+					>
+						<div
+							class="main-slider-card-image"
+							style="
+								background-image: url('/assets/images/myPlyProgress.svg');
+							"
+						></div>
+						<div class="main-slider-card-content">
+							<h2 class="main-slider-card-content-title">
+								<strong>Progress & Personal Bests.</strong>
+							</h2>
+							<!-- <p class="main-slider-card-content-subtitle">
+								Review progress, assess your training examine
+								your results, train smarter.
+							</p> -->
+						</div>
+					</a>
+					<a (click)="myProfile()" class="main-slider-card">
+						<div
+							class="main-slider-card-image"
+							style="
+								background-image: url('/assets/images/myPlyProfile.svg');
+							"
+						></div>
+						<div class="main-slider-card-content">
+							<h2 class="main-slider-card-content-title">
+								<strong>My Ply Profile.</strong>
+							</h2>
+							<!-- <p class="main-slider-card-content-subtitle">
+								Include as much information as you wish, to help
+								us craft your experience with us.
+							</p> -->
+						</div>
+					</a>
+					<div class="spacer"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<hr />
+			<app-want-more-cta></app-want-more-cta>
+			<app-ply-life class="text-align-right"></app-ply-life>
+		</div>
+	</div>
+</ion-content>
+
+<app-tabs selectedIndex="1"></app-tabs>

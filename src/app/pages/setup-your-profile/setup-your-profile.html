@@ -1,0 +1,162 @@
+<ion-content>
+	<div class="container page-scrollable">
+		<div class="ply-logo">
+			<img src="/assets/images/ply-logo.svg" />
+		</div>
+		<div class="page-title">Setup your profile.</div>
+		<form>
+			<div class="form-group underlined" [ngClass]="{'validation-error' : this.validationErrors.errors.units.length !== 0}">
+				<label>Weight Training Units.</label>
+				<div class="form-checkbox">
+					<input
+						type="radio"
+						value="imperial"
+						name="units"
+						[(ngModel)]="request.units"
+					/>
+					<span class="checkmark">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 4.51 3.3"
+						>
+							<path
+								class="fill"
+								d="M4,0,1.75,2.22.54,1,0,1.55,1.75,3.3,4.51.54Z"
+							/>
+						</svg>
+					</span>
+					<div class="checkmark-text">
+						<span class="value-underlined"> Imperial. </span>
+					</div>
+				</div>
+				<div class="form-checkbox">
+					<input
+						type="radio"
+						value="metric"
+						name="units"
+						[(ngModel)]="request.units"
+					/>
+					<span class="checkmark">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 4.51 3.3"
+						>
+							<path
+								class="fill"
+								d="M4,0,1.75,2.22.54,1,0,1.55,1.75,3.3,4.51.54Z"
+							/>
+						</svg>
+					</span>
+					<div class="checkmark-text">
+						<span class="value-underlined"> Metric. </span>
+					</div>
+				</div>
+			</div>
+			<div class="validation-error-message validation-units-message" [ngClass]="{'visible' : this.validationErrors.errors.units.length !== 0}" >
+				{{validationErrors.errors.units}}
+			</div>
+			<div class="form-group" [ngClass]="{'validation-error' : this.validationErrors.errors.gender.length !== 0}" >
+				<label for="gender">Gender.</label>
+				<div class="form-input">
+					<select
+						required
+						name="gender"
+						#genderSelect
+						id="gender"
+						(change)="checkPlaceholder(genderSelect)"
+						[(ngModel)]="request.gender"
+					>
+						<option value="" disabled selected>
+							Select your option
+						</option>
+						<option value="male" selected>Male</option>
+						<option value="female">Female</option>
+						<option value="other">Other</option>
+					</select>
+				</div>
+				<div class="validation-error-message">
+					{{validationErrors.errors.gender}}
+				</div>
+			</div>
+			<div class="form-group" [ngClass]="{'validation-error' : this.validationErrors.errors.height.length !== 0}">
+				<label>Height.</label>
+				<div class="form-input has-unit">
+					<input
+						type="number"
+						inputmode="decimal"
+						name="height"
+						placeholder="181"
+						onfocus="this.placeholder = ''"
+						[(ngModel)]="request.height"
+						appAutowidth
+					/>
+					<span>cm</span>
+				</div>
+				<div class="validation-error-message">
+					{{validationErrors.errors.height}}
+				</div>
+			</div>
+			<div class="form-group" [ngClass]="{'validation-error' : this.validationErrors.errors.weight.length !== 0}">
+				<label>Weight.</label>
+				<div class="form-input has-unit">
+					<input
+						type="number"
+						inputmode="decimal"
+						name="weight"
+						placeholder="84"
+						onfocus="this.placeholder = ''"
+						[(ngModel)]="request.weight"
+						appAutowidth
+					/>
+					<span>kg</span>
+				</div>
+				<div class="validation-error-message">
+					{{validationErrors.errors.weight}}
+				</div>
+			</div>
+			<div class="form-group" [ngClass]="{'validation-error' : this.validationErrors.errors.motivations.length !== 0}">
+				<label>Motivation.</label>
+				<div class="form-message">Select as many as you wish.</div>
+				<div
+					class="form-checkbox"
+					*ngFor="let motivation of motivations; let i = index;"
+				>
+					<input
+						type="checkbox"
+						type="checkbox"
+						name="motivations"
+						value="{{motivation.id}}"
+						(change)="checkMotivations($event)"
+					/>
+					<span class="checkmark">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 4.51 3.3"
+						>
+							<path
+								class="fill"
+								d="M4,0,1.75,2.22.54,1,0,1.55,1.75,3.3,4.51.54Z"
+							/>
+						</svg>
+					</span>
+					<div class="checkmark-text">
+						<span class="value-underlined motivation-label">
+							{{motivation.label}}
+						</span>
+						{{motivation.description}}
+					</div>
+				</div>
+				<hr />
+				<div class="validation-error-message">
+					{{validationErrors.errors.motivations}}
+				</div>
+			</div>
+			<div class="form-submit">
+				<button (click)="updateProfile()">
+					<img src="/assets/icon/lets-go-icon.svg" />
+				</button>
+			</div>
+		</form>
+		<app-ply-life class="text-align-right"></app-ply-life>
+	</div>
+</ion-content>

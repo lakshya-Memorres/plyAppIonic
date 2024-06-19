@@ -1,0 +1,97 @@
+{
+  "project_info": {
+    "project_number": "473551803959",
+    "firebase_url": "https://ply-app-307211-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "ply-app-307211",
+    "storage_bucket": "ply-app-307211.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:473551803959:android:368141262f5fa2165891b2",
+        "android_client_info": {
+          "package_name": "com.ply.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "473551803959-k78nkd3asmbji4a5qn27i9dn3j6m1joc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ply.app",
+            "certificate_hash": "013291740f6b4062aaa2bacfcf8c6f843cfaf4db"
+          }
+        },
+        {
+          "client_id": "473551803959-o28rmlgph0ppfsnugtp51fqcpsecq6hc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBSwGrpLTjeMo2mRNi-ylG14MGsJsfnew"
+        },
+        {
+          "current_key": "AIzaSyDpe97XUEcE3uBHwr0owa2zdwMPSv0QeEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "473551803959-o28rmlgph0ppfsnugtp51fqcpsecq6hc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "473551803959-gfpihefp6v6f48lnrjmdmjn742bnqsub.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ply.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:473551803959:android:6b6ef9bb1c9587d25891b2",
+        "android_client_info": {
+          "package_name": "life.ply.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "473551803959-o28rmlgph0ppfsnugtp51fqcpsecq6hc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBSwGrpLTjeMo2mRNi-ylG14MGsJsfnew"
+        },
+        {
+          "current_key": "AIzaSyDpe97XUEcE3uBHwr0owa2zdwMPSv0QeEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "473551803959-o28rmlgph0ppfsnugtp51fqcpsecq6hc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "473551803959-gfpihefp6v6f48lnrjmdmjn742bnqsub.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ply.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,51 @@
+<ion-content>
+	<div class="container page-scrollable">
+		<app-back-button></app-back-button>
+		<div class="ply-logo text-align-right">
+			<img src="/assets/images/ply-logo.svg" />
+		</div>
+		<div class="page-title">Favourites.</div>
+		<!-- <div class="page-subtitle">
+			Solid set of favourites, the cornerstone of successful
+			training,<strong> this is your playbook.</strong>
+		</div> -->
+		<div class="no-results" *ngIf=" emptyResults== true">
+			No Favourites saved.
+		</div>
+		<ion-spinner *ngIf="loading == true" name="dots"></ion-spinner>
+		<div class="category-wrapper" *ngIf="loading == false">
+			<div
+				class="exercises"
+				*ngFor="let favourite of filteredFavourites;"
+			>
+				<div class="page-title">{{favourite.category}}.</div>
+				<app-workout-card
+					*ngFor="let workout of favourite.workouts; let i = index"
+					(click)="goToWorkout(workout)"
+					[workout]="workout"
+					[userSubscription]="userSubscription"
+					[keyExists]="keyExists"
+				></app-workout-card>
+				<hr />
+			</div>
+		</div>
+	</div>
+	<!-- <div class="liberate">
+		<ng-container>
+			<div class="ply-life-icon">
+				<img src="/assets/icon/ply-life-icon-white.svg" />
+			</div>
+			<div class="ply-graphic">
+				<img src="/assets/icon/ply-graphic-green.svg" />
+			</div>
+			<button class="subscribe-to-ply-btn">
+				<img src="/assets/icon/liberateYourTraining.svg" />
+			</button>
+		</ng-container>
+	</div> -->
+	<ng-container *ngIf="loading == false">
+		<app-subscription type="noChallenge" [userSubscription]="userSubscription" [keyExists]="keyExists"></app-subscription>
+	</ng-container>
+</ion-content>
+
+<app-tabs selectedIndex="1" slot="fixed"></app-tabs>

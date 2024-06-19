@@ -1,0 +1,90 @@
+<ion-content>
+	<div class="page-scrollable">
+		<input
+			type="text"
+			name="page"
+			placeholder=""
+			#page
+			style="opacity: 0;"
+		/>
+		<div class="container">
+			<app-back-button></app-back-button>
+			<div class="ply-logo text-align-right">
+				<img src="/assets/images/ply-logo.svg" />
+			</div>
+			<div class="page-title">Progress.</div>
+			<div class="page-subtitle">
+				Track your workout activity over the last 30 days.
+			</div>
+
+			<ion-spinner *ngIf="loading == true" name="dots"></ion-spinner>
+			<ng-container *ngIf="loading == false">
+				<div class="progress-chart">
+					<app-workout-chart></app-workout-chart>
+				</div>
+				<hr class="ion-margin-bottom ion-margin-top" />
+				<div class="page-title">Personal Bests.</div>
+				<!-- <div class="page-subtitle ion-margin-bottom">
+					<strong>Review your best efforts,</strong> assess your progress,
+					and continually strive to push boundaries, to challenge your
+					expectations, to live better..
+				</div> -->
+
+				<div class="no-results" *ngIf="emptyResults == true">
+					No Personal Bests Recorded.
+				</div>
+
+				<div class="exercise-filter" *ngIf="emptyResults != true">
+					<div class="title">Review by Category:</div>
+					<ul>
+						<li
+							*ngFor="let category of personalBestsCategories"
+							(click)="showActivity(category)"
+							[class.active]="selectOption == category"
+						>
+							{{category}}.
+						</li>
+					</ul>
+				</div>
+				<div class="pb-list ion-margin-top">
+					<ng-container
+						*ngFor="let personalBest of personalBestsFormatted; let i = index;"
+					>
+						<div
+							class="category-wrapper"
+							[class.show]="personalBest.category == selectOption"
+						>
+							<div class="pb-list-category">{{personalBest.category}}</div>
+							<ul>
+								<li
+									class="pb-list-exercie"
+									*ngFor="let item of personalBest.exercises | keyvalue"
+								>
+									<div class="pb-list-exercie-title">
+										{{ this.commonActions.formatPBs('list', item.value, this.unit, personalBest.category)}}
+									</div>
+
+									<div class="link">
+										<hr />
+										<a
+											(click)="sharePersonalBest(item, 'shareWorkoutCompleted', personalBest.category)"
+										>
+											<img
+												src="/assets/icon/share-icon.svg"
+											/>
+										</a>
+									</div>
+									<div class="last-completed">
+										{{ formatDate(item.value.timestamp) }}
+									</div>
+								</li>
+							</ul>
+						</div>
+					</ng-container>
+				</div>
+			</ng-container>
+			<app-ply-life class="text-align-right ion-margin-top"></app-ply-life>
+		</div>
+	</div>
+</ion-content>
+<app-tabs selectedIndex="1" slot="fixed"></app-tabs>

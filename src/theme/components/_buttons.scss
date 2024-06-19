@@ -1,0 +1,38 @@
+.favourites-button {
+	margin-top: 14px;
+	font-size: 11px;
+	font-weight: bold;
+	display: flex;
+	flex-direction: row;
+	color: var(--text-color);
+	align-items: center;
+	justify-content: flex-end;
+	width: 100%;
+	img,
+	span {
+		width: 7px;
+		margin-left: 10px;
+	}
+}
+
+.add-button {
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: underline;
+	display: flex;
+	flex-direction: row;
+	color: var(--text-color);
+	align-items: center;
+	margin-bottom: 10px;
+	justify-content: center;
+	cursor: pointer;
+	img {
+		width: 7px;
+		margin-left: 10px;
+	}
+	&.swap-button {
+		img {
+			width: 17px;
+		}
+	}
+}

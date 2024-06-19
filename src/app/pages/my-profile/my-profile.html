@@ -1,0 +1,179 @@
+<ion-content>
+	<div class="container page-scrollable">
+		<app-back-button></app-back-button>
+		<div class="ply-logo text-align-right">
+			<img src="/assets/images/ply-logo.svg" />
+		</div>
+		<div class="page-title">Profile.</div>
+		<div class="page-subtitle">
+			<strong>Tap</strong> to update your profile.
+		</div>
+		<ion-spinner *ngIf="loading == true" name="dots"></ion-spinner>
+		<ng-container *ngIf="loading == false">
+			<form>
+				<div class="form-group">
+					<label>Name.</label>
+					<div class="form-input">
+						<input
+							type="text"
+							name="name"
+							placeholder="Patrick Sanders"
+							[(ngModel)]="request.name"
+						/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Email.</label>
+					<div class="form-input">
+						<input
+							type="email"
+							name="email"
+							placeholder="patricksander@gmail.com"
+							[(ngModel)]="request.email"
+						/>
+					</div>
+				</div>
+				<div class="form-group underlined">
+					<label>Weight Training Units.</label>
+					<div class="form-checkbox">
+						<input
+							type="radio"
+							value="imperial"
+							name="units"
+							[(ngModel)]="request.units"
+							ng-checked="request.units == imperial"
+						/>
+						<span class="checkmark">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 4.51 3.3"
+							>
+								<path
+									class="fill"
+									d="M4,0,1.75,2.22.54,1,0,1.55,1.75,3.3,4.51.54Z"
+								/>
+							</svg>
+						</span>
+						<div class="checkmark-text">
+							<span class="value-underlined"> Imperial. </span>
+						</div>
+					</div>
+					<div class="form-checkbox">
+						<input
+							type="radio"
+							value="metric"
+							name="units"
+							[(ngModel)]="request.units"
+							ng-checked="request.units == metric"
+						/>
+						<span class="checkmark">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 4.51 3.3"
+							>
+								<path
+									class="fill"
+									d="M4,0,1.75,2.22.54,1,0,1.55,1.75,3.3,4.51.54Z"
+								/>
+							</svg>
+						</span>
+						<div class="checkmark-text">
+							<span class="value-underlined"> Metric </span>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="gender">Gender.</label>
+					<div class="form-input">
+						<select
+							required
+							name="gender"
+							#genderSelect
+							id="gender"
+							(change)="checkPlaceholder(genderSelect)"
+							[(ngModel)]="request.gender"
+						>
+							<option value="" disabled>
+								Select your option
+							</option>
+							<option value="male">Male</option>
+							<option value="female">Female</option>
+							<option value="other">Other</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Height.</label>
+					<div class="form-input has-unit">
+						<input
+							type="number"
+							inputmode="decimal"
+							name="height"
+							placeholder="181"
+							onfocus="this.placeholder = ''"
+							[(ngModel)]="request.height"
+							appAutowidth
+						/>
+						<span>cm</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Weight.</label>
+					<div class="form-input has-unit">
+						<input
+							type="number"
+							inputmode="decimal"
+							name="weight"
+							placeholder="84"
+							[(ngModel)]="request.weight"
+							maxlength="3"
+							onfocus="this.placeholder = ''"
+							appAutowidth
+						/>
+						<span>kg</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Motivation.</label>
+					<div class="form-message">Select as many as you wish.</div>
+					<div
+						class="form-checkbox"
+						*ngFor="let motivation of motivations; let i = index;"
+					>
+						<input
+							type="checkbox"
+							type="checkbox"
+							name="motivations"
+							value="{{motivation.id}}"
+							[checked]="isSelected(motivation)"
+							(change)="checkMotivations($event)"
+						/>
+						<span class="checkmark">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 4.51 3.3"
+							>
+								<path
+									class="fill"
+									d="M4,0,1.75,2.22.54,1,0,1.55,1.75,3.3,4.51.54Z"
+								/>
+							</svg>
+						</span>
+						<div class="checkmark-text">
+							<span class="value-underlined motivation-label">
+								{{motivation.label}}
+							</span>
+							{{motivation.description}}
+						</div>
+					</div>
+					<hr />
+				</div>
+				<div class="form-submit">
+					<app-button (click)="updateProfile()">Save</app-button>
+				</div>
+			</form>
+		</ng-container>
+		<app-ply-life class="text-align-right"></app-ply-life>
+	</div>
+</ion-content>
+<app-tabs selectedIndex="1" slot="fixed"></app-tabs>

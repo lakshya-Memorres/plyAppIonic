@@ -1,0 +1,102 @@
+<ion-content [scrollY]="false">
+	<div class="container container-padding" #container>
+		<div class="ply-logo" #plyLogo>
+			<img src="/assets/images/ply-logo.svg" />
+		</div>
+		<div class="box">
+			<ion-slides
+				#slides
+				scrollbar="false"
+				ion-fixed
+				pager
+				(ionSlideDidChange)="slideChanged(slide3, slide4)"
+				(ionSlideDrag)="slideChanged(slide3, slide4)"
+			>
+				<ion-slide #slide1>
+					<div class="on-boarding-slide additional-left-padding">
+						<div class="on-boarding-slide-content">
+							<app-ply-life class="text-align-right"></app-ply-life>
+							<div class="on-boarding-slide-image-wrapper">
+								<div
+									class="image"
+									style="
+										background-image: url('/assets/images/Ply_App_Layouts_Build Review_OnBoarding_1.jpg');
+									"
+								></div>
+							</div>
+							<app-text class="text-align-left">
+								<p class="margin-none">
+									<strong>
+										Enhance your workout experience.
+									</strong>
+								</p>
+								<p class="margin-none">
+									Science based, evidence led workout content for
+									our fitness community.
+								</p>
+							</app-text>
+						</div>
+					</div>
+				</ion-slide>
+				<ion-slide #slide2>
+					<div class="on-boarding-slide additional-left-padding">
+						<div class="on-boarding-slide-content">
+							<app-ply-life class="text-align-right"></app-ply-life>
+							<div class="on-boarding-slide-image-wrapper">
+								<div
+									class="image"
+									style="
+										background-image: url('/assets/images/Ply_App_Layouts_Build Review_OnBoarding_2.jpg');
+									"
+								></div>
+							</div>
+							<app-text class="text-align-left">
+								<p class="margin-none">
+									<strong>
+										Your personal fitness playbook.
+									</strong>
+								</p>
+								<p class="margin-none">
+									Elite level workouts, built by professional
+									coaches, made for you.
+								</p>
+							</app-text>
+						</div>
+					</div>
+				</ion-slide>
+				<ion-slide #slide3>
+					<div class="on-boarding-slide additional-left-padding">
+						<div class="on-boarding-slide-content">
+							<app-ply-life class="text-align-right"></app-ply-life>
+							<div class="on-boarding-slide-image-wrapper">
+								<div
+									class="image"
+									style="
+										background-image: url('/assets/images/Ply_App_Layouts_Build Review_OnBoarding_3.jpg');
+									"
+								></div>
+							</div>
+							<app-text class="text-align-left">
+								<p class="margin-none">
+									<strong>Join us, Its free to explore.</strong>
+								</p>
+								<p class="margin-none">
+									Simply register to access all of our free content.
+								</p>
+							</app-text>
+						</div>
+					</div>
+				</ion-slide>
+			</ion-slides>
+		</div>
+		<div class="on-boarding-navigation">
+			<a *ngIf="sliderEnd != true" class="on-boarding-navigation-button"
+				>Swipe For Next.</a
+			>
+			<a *ngIf="sliderEnd == true" class="next" (click)="goToRegister()">
+				<span class="underline"> Register </span>
+				<img src="/assets/icon/forward-icon.svg" />
+			</a>
+		</div>
+	</div>
+</ion-content>

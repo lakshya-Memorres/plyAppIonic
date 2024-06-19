@@ -1,0 +1,42 @@
+<ion-list class="card ion-no-padding" (click)='goTovideo()'>
+	<ion-item-sliding>
+		<ion-item (click)="goToWorkout()" class="ion-no-padding">
+			<div class="card-media">
+				<div class="image" style="background-image: url('/assets/images/killing-that-kettlebell-workout.jpg')"></div>
+			</div>
+			<div class="card-content">
+				<div class="card-content-title">
+					<span class="font-weight-bold">Total Body;</span> Workout No.1
+				</div>
+				<ul class="card-content-list">
+					<li><span class="font-weight-bold">Exercises:</span> 8.</li>
+					<li><span class="font-weight-bold">Main Lifts:</span> Squat, Bench Press</li>
+					<li><span class="font-weight-bold">Rep Range:</span> 4-12</li>
+				</ul>
+				<div class="card-content-footer">
+					<div class="intensity-level">
+						<ul class="intensity-level-rating level-2">
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+						<span class="intensity-level-label">
+					Intensity
+				</span>
+					</div>
+					<div class="time">
+						<span class="value">30'</span>
+						<button class="forward-button">
+							<img src="/assets/icon/forward-icon.svg" />
+						</button>
+					</div>
+				</div>
+			</div>
+		</ion-item>
+		<ion-item-options side="end">
+			<ion-item-option color="danger" (click)="removeFavourite()">
+				<ion-icon slot="icon-only" name="trash"></ion-icon>
+			</ion-item-option>
+		</ion-item-options>
+	</ion-item-sliding>
+</ion-list>

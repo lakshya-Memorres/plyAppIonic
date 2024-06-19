@@ -1,0 +1,173 @@
+<ion-content>
+	<div class="workout-media">
+		<div
+			class="image"
+			style="background-image: url('{{workout.images.main}}')"
+		></div>
+		<app-back-button></app-back-button>
+	</div>
+	<div class="workout-header">
+		<div class="container">
+			<div class="workout-header-title">
+				<strong>{{workout.name}}</strong>
+			</div>
+			<hr />
+			<div class="workout-header-meta">
+				<div class="workout-category">
+					<strong>{{workout.top_level_category.name}}. </strong>
+					<span>{{workout.workout_category.name}}</span>
+				</div>
+				<div class="workout-intensity-time">
+					<div class="intensity-level">
+						<ul
+							class="intensity-level-rating level-{{workout.intensity}}"
+						>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+						<span class="intensity-level-label"> Intensity </span>
+					</div>
+					<div class="time">{{workout.duration_in_mins}}'</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="loading == true" class="container">
+		<ion-spinner name="dots"></ion-spinner>
+	</div>
+	<ng-container *ngIf="loading == false">
+		<div *ngIf="loading == false" class="container">
+			<ul class="workout-meta-list">
+				<li>
+					<div class="workout-meta-list-label">Exercises:</div>
+					<div class="workout-meta-list-value">
+						{{workout.exercise_count}}
+					</div>
+				</li>
+				<li *ngFor="let information of workout.information">
+					<div class="workout-meta-list-label">{{information.label}}</div>
+					<div class="workout-meta-list-value">{{information.value}}</div>
+				</li>
+				<li>
+					<div class="workout-meta-list-label">Equipment</div>
+					<div class="workout-meta-list-icons">
+						<ng-container *ngFor="let equipment of equipmentList;">
+							<img src="/assets/icon/{{equipment}}.svg" />
+						</ng-container>
+					</div>
+				</li>
+			</ul>
+
+			<div class="inline-flex favourite">
+				<div
+					*ngIf="workout.is_favourite == true"
+					class="favourites-button"
+					(click)="removeFavourite()"
+				>
+					<div class="text-underline">Favourites</div>
+					<span> -</span>
+				</div>
+				<div
+					*ngIf="workout.is_favourite == false"
+					class="favourites-button"
+					(click)="addFavourite()"
+				>
+					<div class="text-underline">Favourites</div>
+					<img src="/assets/icon/plus-icon.svg" />
+				</div>
+			</div>
+
+			<div class="workout-buttons">
+				<app-button (click)="goToCustomiseWorkout()">Customise</app-button>
+				<app-button class="workout" (click)="goToCurrentWorkout()"
+					>Workout</app-button
+				>
+			</div>
+
+			<ng-container *ngIf="userSubscription == null && !keyExists || userSubscription == 0 && !keyExists ">
+				<app-subscription-small [userSubscription]="userSubscription" [keyExists]="keyExists"></app-subscription-small>
+			</ng-container>
+
+		</div>
+
+		<div class="related-content">
+			<ion-spinner *ngIf="loading == true" name="dots"></ion-spinner>
+			<ng-container *ngIf="loading == false">
+				<div class="more-exercises" *ngIf="similarWorkouts.length !== 0">
+					<div class="category-slider">
+						<div class="category-slider-header container">
+							<div class="category-slider-header-title">
+								Similar Workouts.
+							</div>
+						</div>
+						<div class="category-slider-wrapper">
+							<ng-container
+								*ngFor="let similarWorkout of similarWorkouts; let i=index"
+							>
+								<a
+									(click)="goToWorkout(similarWorkout)"
+									[class.is_premium]="userSubscription == null && similarWorkout.is_premium == 1 || userSubscription == 0 && similarWorkout.is_premium == 1"
+									class="category-slider-card"
+									[class.is_singular]="similarWorkouts.length == 1"
+								>
+									<div
+										class="category-slider-card-image"
+										style="background-image: url('{{similarWorkout.images.card}}')"
+									></div>
+									<div class="category-slider-card-content">
+										<h2
+											class="
+												category-slider-card-content-title
+											"
+										>
+											<strong
+												>{{similarWorkout.name}}</strong
+											>
+										</h2>
+										<p
+											class="
+												category-slider-card-content-subtitle
+											"
+										>
+											<strong
+												>{{workout.top_level_category.name}}.</strong
+											>
+											<span
+												>{{similarWorkout.workout_category.name}}</span
+											>
+										</p>
+									</div>
+								</a>
+							</ng-container>
+						</div>
+					</div>
+					<div class="container">
+						<hr class="sep" />
+					</div>
+				</div>
+				<div class="more-exercises" *ngIf="combinableWorkouts.length != 0">
+					<div class="container">
+						<div class="page-title">Combine With.</div>
+						<app-workout-card
+							*ngFor="let workout of combinableWorkouts; let i = index"
+							(click)="goToWorkout(workout)"
+							[workout]="workout"
+							[userSubscription]="userSubscription"
+							[keyExists]="keyExists"
+						></app-workout-card>
+					</div>
+				</div>
+			</ng-container>
+		</div>
+
+		<app-subscription
+			message="Your Personal Fitness Playbook."
+			type="noChallenge"
+			[userSubscription]="userSubscription"
+			[keyExists]="keyExists"
+		></app-subscription>
+	</ng-container>
+</ion-content>
+
+<app-tabs selectedIndex="0" slot="fixed"></app-tabs>

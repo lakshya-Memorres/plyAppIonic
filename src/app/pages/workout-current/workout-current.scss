@@ -1,0 +1,40 @@
+@import "../../../theme/utilities/mixins";
+
+.page-scrollable {
+	min-height: auto;
+}
+
+.has-timer {
+	padding: 0px 30px 215px 30px;
+}
+
+app-text {
+	margin-top: 16px;
+}
+
+app-dropdown-exersice-card {
+	margin-bottom: 10px;
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.rounds-button {
+	margin-top: 40px;
+}
+
+.add-exercies {
+	margin-top: 42px;
+	margin-bottom: 75px;
+	.inline-flex {
+		align-items: center;
+	}
+	hr {
+		max-width: 60%;
+		margin: 0 0 0 auto;
+	}
+	.favourites-button {
+		margin-left: 20px;
+		margin-top: -4px;
+	}
+}

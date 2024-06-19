@@ -1,0 +1,41 @@
+@import "../../../theme/utilities/mixins";
+
+:host {
+	.exercise-filter {
+		margin-top: 0;
+		margin-bottom: 16px;
+	}
+	.page-scrollable {
+		padding-bottom: 0px;
+	}
+	.ply-logo {
+		margin-top: 15px;
+	}
+	app-text {
+		margin-bottom: 16px;
+		font-size: 13.1px;
+		a {
+			color: var(--text-color);
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	}
+	app-workout-card {
+		margin-bottom: 22px;
+		display: none !important;
+		transition: all 0.2s ease-in-out;
+		&:last-child {
+			margin-bottom: 48px;
+		}
+	}
+
+	app-ply-life {
+		&.ion-padding-top {
+			padding-top: 0px;
+			padding-bottom: 13px;
+		}
+	}
+	.show {
+		display: block !important;
+	}
+}

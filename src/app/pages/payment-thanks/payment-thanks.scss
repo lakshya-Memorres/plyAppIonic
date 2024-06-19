@@ -1,0 +1,48 @@
+@import '../../../theme/utilities/mixins';
+
+:host {
+	ion-content {
+		--background: var(--ion-color-secondary) !important;
+		.page-title{
+			//margin-bottom: 0px;
+		}
+
+		.ply-logo{
+			margin-top: 0px;
+		}
+
+		.content{
+			font-size: 13.2px;
+
+			p{
+				margin-bottom: 43px;
+			}
+		}
+
+		.the-journey-begins{
+			.ply-graphic {
+				text-align: center;
+				margin-bottom: 34px;
+				img {
+					width: 240px;
+				}
+			}
+		}
+
+		.the-journey-begins-logo{
+			text-align: center;
+			img{
+				max-width: 216px;
+			}
+		}
+	}
+
+	.payment-thanks-footer{
+		margin-top: 48px;
+		app-ply-life {
+			margin-top: -22px;
+
+		}
+	}
+
+}

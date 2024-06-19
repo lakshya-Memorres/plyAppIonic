@@ -1,0 +1,52 @@
+@import "../../../theme/utilities/mixins";
+
+:host {
+	ion-content {
+		--background: var(--ion-color-secondary) !important;
+		.page-title {
+			margin-bottom: 20px;
+		}
+		.content {
+			font-size: 13.2px;
+			p {
+				color: var(--text-color);
+			}
+		}
+		.question {
+			margin-bottom: 35px;
+			&-header {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
+				padding-bottom: 8px;
+				border-bottom: 1px solid var(--text-color);
+				img {
+					width: 11px;
+    				margin-left: 5px;
+					opacity: 0;
+					transition: all 0.1s ease-in-out;
+				}
+				.activeIcon {
+					opacity: 1;
+				}
+			}
+			.content {
+				max-height: 0;
+				overflow: hidden;
+				transition: all 0.4s ease;
+			}
+			.questionActive {
+				max-height: 500vh;
+			}
+			strong {
+				display: block;
+				color: var(--text-color);
+			}
+
+			&:last-of-type {
+				margin-bottom: 0px;
+			}
+		}
+	}
+}

@@ -1,0 +1,58 @@
+<ion-content>
+	<div class="workout-header-container">
+		<div class="container center">
+			<app-back-button></app-back-button>
+			<div class="ply-logo text-align-right">
+				<img src="/assets/images/ply-logo.svg" />
+			</div>
+			<div class="workout-header">
+				<div class="workout-header-title">
+					<strong>Add Exercise...</strong>
+				</div>
+				<!-- <div class="workout-header-text">
+					Select from a range of additional exercise options, from the
+					categories listed below.
+				</div> -->
+			</div>
+		</div>
+	</div>
+	<div
+		class="
+			container
+			center
+			page-scrollable
+			ion-margin-top ion-margin-bottom
+		"
+	>
+		<ion-spinner *ngIf="loading == true" name="dots"></ion-spinner>
+		<ng-container *ngIf="loading == false">
+			<ng-container *ngIf="hideTopLevelCategories == false">
+				<div class="category-wrapper">
+					<app-category-card
+						*ngFor="let category of topLevelCategories; let i = index"
+						[category]="category"
+						(ParentGetExerciseCategoriesByID)="getExerciseCategoriesByID(category.id)"
+					></app-category-card>
+				</div>
+			</ng-container>
+			<ng-container
+				*ngFor="let sub of subLevelCategoriesAndExercises; let i = index"
+			>
+				<add-exercise
+					*ngIf="i == currentIndex"
+					[subCategories]="sub.sub_categories"
+					[exercises]="sub.exercises"
+					[workoutID]="workout.id"
+					(clearSelectedSubLevelItems)="clearSelectedSubLevelItems(i)"
+					(getSubLevelCategories)="getSubLevelCategories($event)"
+					(addExercises)="addExercises($event)"
+				></add-exercise>
+			</ng-container>
+		</ng-container>
+	</div>
+	<app-ply-life
+		class="container text-align-right padding-bottom"
+	></app-ply-life>
+</ion-content>
+
+<app-tabs selectedIndex="0" slot="fixed"></app-tabs>

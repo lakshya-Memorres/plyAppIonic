@@ -1,0 +1,12 @@
+<div class="links">
+	<ul>
+		<li (click)="goToHelpSupport()">Help and Support</li>
+		<li (click)="goToWhyPly()">Why Ply</li>
+		<li (click)="goToSubscription()">Subscription</li>
+		<li (click)="goToTerms()">Terms and Conditions</li>
+		<li (click)="goToPrivacyPolicy()">Privacy Policy</li>
+		<li (click)="logout()">Logout</li>
+		<li (click)="deleteAccount()">Delete Account</li>
+		<li (click)="loginAs()" *ngIf="!keyExists && user && user.login_as_enabled === 1">Login As</li>
+	</ul>
+</div>

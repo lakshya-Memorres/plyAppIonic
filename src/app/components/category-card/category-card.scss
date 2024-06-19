@@ -1,0 +1,44 @@
+:host {
+	display: block;
+	.card {
+		--background: var(--ion-color-tertiary);
+		--padding-start: 0;
+		--inner-padding-end: 0;
+		--inner-border-width: none;
+		--border-color: transparent;
+		--border-style: none;
+		background-color: var(--ion-color-tertiary);
+		min-height: 75px;
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+		transition: all 0.2s ease;
+		margin-bottom: 20px;
+		&-media {
+			height: 100%;
+			min-height: 77px;
+		}
+		&-content {
+			padding: 20px 16px 0px;
+			color: #fff;
+
+			&-title {
+				font-size: 13px;
+				font-weight: bold;
+				margin-bottom: 3px;
+			}
+
+			&:after {
+				display: inline-block;
+				content: "";
+				width: 16px;
+				height: 16px;
+				background-image: url('/assets/icon/list-item-arrow.svg');
+				background-repeat: no-repeat;
+				float: right;
+				position: relative;
+				bottom: 24px;
+			}
+
+		}
+	}
+}

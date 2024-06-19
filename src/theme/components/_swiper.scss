@@ -1,0 +1,31 @@
+
+
+ion-slides {
+	height: 100%;
+	//margin-top: 10px !important;
+}
+
+.swiper-container {
+	position: unset !important;
+}
+
+.swiper-pagination{
+	text-align: right;
+	left: unset !important;
+	top: 30px !important;
+    //right: 16px;
+	right: 38px;
+	.swiper-pagination-bullet {
+		width: 6px !important;
+		height: 6px !important;
+	}
+	.swiper-pagination-bullet {
+		background: var(--ion-color-tertiary);
+		opacity: 0.32;
+		margin: 0 2px !important;
+	}
+	.swiper-pagination-bullet-active {
+		background: var(--ion-color-tertiary) !important;
+		opacity: 1;
+	}
+}

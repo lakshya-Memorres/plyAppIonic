@@ -1,0 +1,31 @@
+@import '../../../theme/utilities/mixins';
+
+:host {
+	ion-content {
+		--background: var(--ion-color-secondary) !important;
+		.page-title{
+			margin-bottom: 10px;
+		}
+		.content{
+			font-size: 13.2px;
+
+			p{
+				margin-bottom: 35px;
+			}
+		}
+		.version {
+			font-size: 12px;
+			text-align: right;
+			margin: -10px 0 16px 0;
+		}
+	}
+
+	app-contact-us{
+		padding-top: 45px;
+	}
+
+	hr {
+		margin: 40px 0px 0 0px;
+	}
+}
+

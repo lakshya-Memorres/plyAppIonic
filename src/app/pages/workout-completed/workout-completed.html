@@ -1,0 +1,140 @@
+<ion-content>
+	<div class="page-scrollable">
+		<input
+			type="text"
+			name="page"
+			placeholder=""
+			#page
+			style="opacity: 0;"
+		/>
+		<div class="container">
+			<div class="ply-logo text-align-right">
+				<img src="/assets/images/ply-logo.svg" />
+			</div>
+			<div class="page-title">Well done!</div>
+			<app-text>
+				<p>Celebrate the success. The journey continues.</p>
+				<p>
+					Workout completed
+					<strong>
+						{{formatDate(workoutCompleted.workout_finished)}}
+					</strong>
+					<br />
+					Workout duration
+					<strong>
+						{{workoutDuration.hours}}hrs
+						{{workoutDuration.minutes}}min
+						{{workoutDuration.secs}}secs
+					</strong>
+				</p>
+			</app-text>
+			<div class="collectables">
+				<ng-container *ngIf="personalBests.length == 0">
+					<div class="completion-collectable collectable">
+						<div
+							class="collectable-image"
+							style="
+								background-image: url('{{ workoutCompleted.workout.celebration_image.file_path }}');
+							"
+						></div>
+						<div class="collectable-content">
+							<h2 class="collectable-content-title">
+								The journey continues with ply.life
+							</h2>
+							<!-- <p class="collectable-content-description">
+								Complete a major lift with a movement focused lift
+								for big metabolic effort.
+							</p> -->
+						</div>
+					</div>
+					<div class="share-link">
+						<a
+							(click)="shareCelebration()"
+						>
+							<span class="text-underline">Share your journey.</span>
+							<img src="/assets/icon/share-icon.svg" />
+						</a>
+					</div>
+				</ng-container>
+				<ng-container *ngIf="personalBests.length > 0">
+					<hr />
+					<div class="pb-collectable collectable">
+						<div
+							class="collectable-image"
+							style=" background-image: url('{{ pbImage }}'); "
+						></div>
+						<div class="collectable-content">
+							<h2 class="collectable-content-title">I've set a new PB with ply.life.</h2>
+							<!-- <h2 class="collectable-content-title">
+								Success...It's A Personal Best.
+							</h2>
+							<p class="collectable-content-description">
+								The hard yards have paid off, keep pushing, keep
+								challenging, stay strong, stay humble.
+							</p> -->
+						</div>
+					</div>
+					<!-- <div class="share-link">
+						<a
+							(click)="shareCelebration()"
+						>
+							<span class="text-underline">Inspire Others.</span>
+							<img src="/assets/icon/share-icon.svg" />
+						</a>
+					</div> -->
+				</ng-container>
+			</div>
+			<ng-container *ngIf="personalBests.length > 0">
+				<div class="pb-list">
+					<div
+						class="pb-wrapper"
+						*ngFor="let personalBest of personalBests; let i = index;"
+					>
+						<div class="pb-list-category">
+							{{personalBest.category}}
+						</div>
+						<ul>
+							<li
+								class="pb-list-exercie"
+								*ngFor="let item of personalBest.exercises | keyvalue"
+							>
+								<div class="pb-list-exercie-title">
+									{{ this.commonActions.formatPBs('list', item.value, this.unit, personalBest.category)}}
+								</div>
+								<div class="link">
+									<hr />
+									<a
+										(click)="sharePersonalBest(item.value, 'shareWorkoutCompleted', personalBest.category)"
+									>
+										<img
+											src="/assets/icon/share-icon.svg"
+										/>
+									</a>
+								</div>
+								<div class="last-completed">
+									{{formatDate(item.value.timestamp)}}
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</ng-container>
+			<hr class="pb-recent-progress-sep" />
+			<ion-spinner *ngIf="loading == true" name="dots"></ion-spinner>
+			<ng-container *ngIf="loading == false">
+				<div class="recent-progresss">
+					<div class="page-title">Recent Progress.</div>
+					<app-text>
+						<p>
+							Track your workout activities over the last 30 days.
+						</p>
+					</app-text>
+					<app-workout-chart></app-workout-chart>
+				</div>
+			</ng-container>
+			<app-ply-life class="text-align-right"></app-ply-life>
+		</div>
+	</div>
+</ion-content>
+
+<app-tabs selectedIndex="0" slot="fixed"></app-tabs>

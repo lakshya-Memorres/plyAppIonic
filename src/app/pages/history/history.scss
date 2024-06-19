@@ -1,0 +1,70 @@
+@import "../../../theme/utilities/mixins";
+
+:host {
+	.show {
+		display: block !important;
+	}
+	.page {
+		height: unset;
+	}
+	.page-subtitle {
+		font-size: 12.1px;
+		margin-top: 10px;
+	}
+	ion-content {
+		.category-wrapper {
+			display: none;
+			margin-bottom: 10px;
+			padding-bottom: 10px;
+			.date-title {
+				margin-top: 0;
+				font-size: 12.7px;
+				font-weight: bold;
+				margin-bottom: 7px;
+			}
+			.workout-sep-title {
+				margin: 20px 0;
+    			font-weight: 600;
+			}
+			.date-sep {
+				margin: 20px 0;
+			}
+			.exercises {
+				margin-top: 15px;
+				app-workout-card {
+					margin-bottom: 23px;
+					display: block;
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+
+				hr {
+					margin-bottom: 25px;
+				}
+
+				&.first {
+					margin-top: 0px;
+				}
+				&:last-child {
+					hr {
+						display: none;
+					}
+				}
+			}
+		}
+		app-ply-life {
+			margin-top: 80px;
+		}
+		.card {
+			margin-bottom: 23px;
+			ion-item {
+				--background: var(--ion-color-tertiary);
+
+				.image {
+					min-height: 177px;
+				}
+			}
+		}
+	}
+}

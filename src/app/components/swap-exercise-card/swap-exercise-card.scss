@@ -1,0 +1,114 @@
+:host {
+	display: block;
+	cursor: pointer;
+	ion-item {
+		--background: #dcd6c7;
+		--padding-start: 0;
+		--inner-padding-end: 0;
+		--inner-border-width: none;
+		--border-color: transparent;
+		--border-style: none;
+		margin-bottom: 20px;
+		width: 100%;
+		display: block;
+		cursor: pointer;
+		border-radius: 12px;
+	}
+	.item-sliding-active-slide {
+		.card {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+	}
+	.card {
+		background-color: rgba(50, 56, 58, 0.15);
+		min-height: 75px;
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+		transition: all 0.2s ease;
+		width: 100%;
+		&-media {
+			min-height: 75px;
+			height: 100%;
+		}
+		&-content {
+			padding: 20px 16px 0px;
+			color: var(--ion-color-tertiary);
+
+			&-title {
+				font-size: 13px;
+				font-weight: bold;
+				margin-bottom: 3px;
+			}
+			&-subtitle {
+				font-size: 10px;
+				font-weight: bold;
+				margin-bottom: 3px;
+			}
+
+			&:after {
+				display: inline-block;
+				content: "";
+				width: 15px;
+				height: 15px;
+				background-image: url("/assets/icon/swap-icon.svg");
+				background-repeat: no-repeat;
+				position: relative;
+				bottom: 50%;
+				float: right;
+			}
+		}
+		&.originalExercise {
+			background: var(--ion-color-tertiary);
+			.card-content {
+				color: #ffff !important;
+
+				&:after {
+					background-image: url("/assets/icon/swap-icon-green.svg");
+				}
+			}
+		}
+		&.currentlySelectedSwap {
+			background: var(--ion-color-secondary);
+			.card-content {
+				color: var(--ion-color-tertiary);
+
+				&:after {
+					background-image: url("/assets/icon/swap-icon.svg");
+				}
+			}
+		}
+	}
+	ion-item-options {
+		border-bottom: none;
+		ion-item-option {
+			.wrapper {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				font-size: 8px;
+				color: var(--text-color);
+				font-weight: bold;
+				min-width: 57px;
+				height: 79px;
+				img {
+					max-height: 30px;
+					margin-top: -11px;
+				}
+				span {
+					position: absolute;
+					bottom: 8px;
+				}
+			}
+		}
+		.swap {
+			background-color: var(--ion-color-secondary);
+		}
+		.delete {
+			background-color: var(--ion-color-danger);
+			border-top-right-radius: 10px;
+			border-bottom-right-radius: 10px;
+		}
+	}
+}

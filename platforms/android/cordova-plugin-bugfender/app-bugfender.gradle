@@ -1,0 +1,3 @@
+dependencies {
+	implementation 'com.bugfender.sdk:android:3.+'
+}

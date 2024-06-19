@@ -1,0 +1,57 @@
+<div class="timer">
+	<div class="container">
+		<div
+			class="timer-intervels"
+			[ngClass]="{'disabaled-timer' : restTimerRunning === true}"
+		>
+			<div
+				*ngFor="let intervel of intervels let i = index"
+				class="intervel"
+				[ngClass]="{'active' : selectedInterval === i}"
+				(click)="restTimer(i)"
+			>
+				{{intervel.value}}
+			</div>
+			<div class="intervel-reset">Press for <strong>Rest.</strong></div>
+		</div>
+		<!-- <div class="countdown">
+			<p #countdown class="hide">Timer will resume in 5</p>
+		</div> -->
+		<div class="time-wrapper">
+			<div class="time" [ngClass]="{'hide' : restTimerRunning == true }">
+				<span class="hours">{{hoursLabel}}</span>:<span class="min"
+					>{{minutesLabel}}</span
+				>:<span class="sec">{{secondsLabel}}</span>
+			</div>
+			<div
+				class="restTimer"
+				[ngClass]="{'show' : restTimerRunning == true }"
+			>
+				<span class="time">{{restTimerLabel}}</span>
+			</div>
+			<div
+				class="pause-button timer-control"
+				[ngClass]="{'display' : timerRunning }"
+				(click)="toggleTimers('pause')"
+			>
+				<img src="/assets/icon/pause-icon.svg" />
+			</div>
+			<div
+				class="play-button timer-control"
+				[ngClass]="{'display' : timerRunning != true }"
+				(click)="toggleTimers('play')"
+			>
+				<img src="/assets/icon/timer-play-icon.svg" />
+			</div>
+		</div>
+		<app-button *ngIf="workoutStarted != true" (click)="startTimer()"
+			>Start Workout</app-button
+		>
+		<app-button
+			class="fade-in"
+			*ngIf="workoutStarted == true"
+			(click)="finishWorkOut()"
+			>Finish Workout</app-button
+		>
+	</div>
+</div>

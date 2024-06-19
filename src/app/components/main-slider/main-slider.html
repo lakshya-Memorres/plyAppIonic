@@ -1,0 +1,28 @@
+<div class="main-slider">
+	<div class="container">
+		<div class="main-slider-title page-title">{{title}}</div>
+	</div>
+	<div class="main-slider-wrapper">
+		<a
+			*ngFor="let featuredWorkout of featuredWorkouts"
+			class="main-slider-card"
+			(click)="goToWorkout(featuredWorkout)"
+		>
+			<div
+				class="main-slider-card-image"
+				style="background-image: url('{{featuredWorkout.image_uri}}')"
+			></div>
+			<!-- <div class="main-slider-card-image" style="background-image: url('/assets/images/killing-that-kettlebell-workout.jpg')"></div> -->
+			<div class="main-slider-card-content">
+				<!-- <div class="main-slider-card-content-time">{{featuredWorkout.duration}}'</div> -->
+				<h2 class="main-slider-card-content-title">
+					{{featuredWorkout.name}}
+				</h2>
+				<p class="main-slider-card-content-description">
+					{{featuredWorkout.description}}
+				</p>
+			</div>
+		</a>
+		<div class="spacer"></div>
+	</div>
+</div>

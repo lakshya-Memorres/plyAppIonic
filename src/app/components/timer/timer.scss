@@ -1,0 +1,115 @@
+:host {
+	background-color: #dcd6c7;
+	display: block;
+	// position: fixed;
+	// bottom: 0;
+	width: 100%;
+	padding: 20px 0px 25px 0px;
+	//padding: 25px 0;
+	z-index: 99999;
+	.timer {
+		&-intervels {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			//margin-bottom: 25px;
+			color: var(--text-color);
+			&.disabaled-timer {
+				// pointer-events: none;
+				.intervel {
+					opacity: 0.5;
+				}
+			}
+			.intervel {
+				width: 34px;
+				height: 34px;
+				min-width: 34px;
+				border-radius: 100%;
+				background-color: var(--ion-color-primary);
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				font-size: 10px;
+				font-weight: 600;
+				text-align: center;
+				margin-right: 7px;
+				cursor: pointer;
+				&.active {
+					opacity: 1;
+					color: var(--ion-color-primary) !important;
+					background-color: var(--ion-color-tertiary) !important;
+				}
+			}
+			.intervel-reset {
+				font-size: 10.5px;
+				font-weight: normal;
+				color: var(--text-color);
+				margin-left: 8px;
+			}
+		}
+		.countdown {
+			font-size: 10.25px;
+			text-align: center;
+			min-height: 15px;
+			p {
+				font-weight: 600;
+				padding-top: 10px;
+				margin: 0px;
+			}
+		}
+		.time-wrapper {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			margin: 16px 0 20px 0;
+			.time {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+				color: var(--text-color);
+				font-size: 36px;
+				line-height: 1;
+				margin: 0px 0px 0px 33px;
+				min-width: 200px;
+				span {
+					min-width: 30px;
+					text-align: center;
+				}
+			}
+			.timer-control {
+				display: none;
+				width: 34px;
+				height: 34px;
+				border-radius: 100%;
+				background-color: var(--ion-color-primary);
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				img {
+					width: 8px;
+				}
+			}
+			.display {
+				display: flex;
+			}
+		}
+	}
+}
+
+.restTimer {
+	display: none;
+}
+
+.show {
+	display: block !important;
+	animation: fadeIn ease 500ms;
+}
+
+.hide {
+	display: none !important;
+	animation: fadeOut ease 500ms;
+}

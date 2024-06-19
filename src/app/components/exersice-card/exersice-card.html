@@ -1,0 +1,32 @@
+<div class="card" [ngClass]="{'rounds' : type == 'rounds'}">
+	<div class="card-media" (click)="goToVideo()">
+		<div
+			class="video"
+			style="background-image: url('{{exercise.image_url}}')"
+		>
+			<img src="/assets/icon/play-button-icon.svg" />
+		</div>
+	</div>
+	<div class="card-content" (click)="addSelectedExercise()">
+		<div class="card-content-title">{{exercise.name}}</div>
+		<div class="card-content-rep-list">
+			<ng-contianer *ngIf="textOverwriteEnabled == true">
+				<span class="rep">{{textOverwriteValue}}</span>
+			</ng-contianer>
+			<ng-container *ngIf="textOverwriteEnabled == false">
+				<ng-container
+					*ngFor="let key of cardKeys let i = index;"
+				>
+					<span class="rep">{{key}}</span>
+					<ng-container *ngIf="i + 1 != cardKeys.length">
+						<span class="sep">-</span>
+					</ng-container>
+				</ng-container>
+			</ng-container>
+			<ng-container *ngIf="exercise.type == '1RM'">
+				<span class="sep-rm">|</span>
+				<span class="rep-max">1RM</span>
+			</ng-container>
+		</div>
+	</div>
+</div>

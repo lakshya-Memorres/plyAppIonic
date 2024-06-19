@@ -1,0 +1,24 @@
+@import "../../../theme/utilities/mixins";
+
+:host {
+	ion-content {
+		--background: var(--ion-color-secondary) !important;
+		.page-title {
+			margin-bottom: 20px;
+		}
+		.content {
+			font-size: 13.2px;
+			color: var(--text-color);
+			p {
+				margin-bottom: 35px;
+				strong {
+					display: inline;
+				}
+			}
+		}
+	}
+
+	app-ply-life {
+		margin-top: 16px;
+	}
+}

@@ -1,0 +1,30 @@
+<ion-spinner *ngIf="loading == true" name="dots"></ion-spinner>
+<ng-container *ngIf="loading == false">
+	<div class="no-results" *ngIf="noWorkoutDataRecorderd == true">
+			No Workouts Completed.
+	</div>
+	<ng-container *ngIf="noWorkoutDataRecorderd == false">
+		<div class="fade-in">
+			<canvas #barChart></canvas>
+		</div>
+	</ng-container>
+	<ng-container *ngIf="noWorkoutDataRecorderd == true">
+		<div class="no-data ion-margin-bottom fade-in">
+			<strong>Oooh</strong> there doesn't seem to any workout data for
+			<strong>{{ selectedCategory }}</strong>. Head over to workouts and
+			get started.
+		</div>
+	</ng-container>
+	<div class="exercise-filter">
+		<div class="title">Review by Category:</div>
+		<ul>
+			<li
+				*ngFor="let category of categories"
+				(click)="showActivity(category)"
+				[class.active]="selectedCategory == category.name"
+			>
+				{{ category.name }}.
+			</li>
+		</ul>
+	</div>
+</ng-container>

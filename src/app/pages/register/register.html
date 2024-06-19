@@ -1,0 +1,88 @@
+<ion-content>
+	<div class="container page-scrollable">
+		<div>
+			<div class="ply-logo">
+				<img src="/assets/images/ply-logo.svg" />
+			</div>
+			<div class="page-title">Register to explore.</div>
+		</div>
+		<div class="form-container">
+			<form>
+				<div class="form-group" [ngClass]="{'validation-error' : this.validationErrors.errors.name.length !== 0}">
+					<label>Name.</label>
+					<div class="form-input">
+						<input
+							type="text"
+							name="username"
+							placeholder="Patrick Sanders"
+							[(ngModel)]="request.name"
+						/>
+					</div>
+					<div class="validation-error-message">
+						{{validationErrors.errors.name}}
+					</div>
+				</div>
+				<div class="form-group"  [ngClass]="{'validation-error' : this.validationErrors.errors.email.length !== 0}">
+					<label>Email.</label>
+					<div class="form-input">
+						<input
+							type="email"
+							name="email"
+							autocomplete
+							placeholder="patricksanders@gmail.com"
+							[(ngModel)]="request.email"
+							autocomplete="username"
+						/>
+					</div>
+					<div class="validation-error-message">
+						{{validationErrors.errors.email}}
+					</div>
+				</div>
+				<div class="form-group" [ngClass]="{'validation-error' : this.validationErrors.errors.password.length !== 0 }">
+					<label>Password.</label>
+					<div class="form-input">
+						<input
+							type="password"
+							name="password"
+							autocomplete="new-password"
+							placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
+							[(ngModel)]="request.password"
+						/>
+					</div>
+					<div class="validation-error-message">
+						{{validationErrors.errors.password}}
+					</div>
+				</div>
+				<div class="form-group" [ngClass]="{'validation-error' : this.validationErrors.errors.confirmPassword.length !== 0 }">
+					<label>Confirm Password.</label>
+					<div class="form-input">
+						<input
+							type="password"
+							name="conform-password"
+							autocomplete="new-password"
+							placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
+							[(ngModel)]="confirmPassword"
+						/>
+					</div>
+					<div class="validation-error-message">
+						{{validationErrors.errors.confirmPassword[0]}}
+					</div>
+				</div>
+				<div class="form-submit">
+					<button (click)="register()">
+						<img src="/assets/icon/register-to-ply-icon.svg" />
+					</button>
+				</div>
+			</form>
+		</div>
+
+		<div>
+			<div class="already-got-an-account form-additional-action">
+				<p>Already Got An Account?</p>
+				<a class="underlined-link" (click)="goToLogin()">Log In.</a>
+			</div>
+		</div>
+
+		<app-ply-life class="text-align-right"></app-ply-life>
+	</div>
+</ion-content>

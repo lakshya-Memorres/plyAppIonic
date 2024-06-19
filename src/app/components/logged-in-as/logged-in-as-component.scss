@@ -1,0 +1,71 @@
+.logged-in-as {
+	position: fixed;
+	z-index: 9999;
+	bottom: 80px;
+	left: 15px;
+	height: 55px;
+	width: 55px;
+	background: #32383a;
+	border-radius: 55px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	transition: width 0.4s ease-in-out;
+	overflow: hidden;
+	flex-direction: row;
+	justify-content: space-between;
+	&-icon {
+		width: 55px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		z-index: 9999;
+		img {
+			width: 20px;
+			height: 20px;
+		}
+	}
+	&-user {
+		color: var(--ion-color-primary);
+		font-size: 10px;
+		margin: 0;
+		text-align: center;
+	    transition: opacity 0.2s ease 0.3s, width 0s ease 0s;
+		opacity: 0;
+		width: 0;
+		visibility: hidden;
+	}
+	&-exit {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--ion-color-danger);
+		height: 55px;
+		border-radius: 55px;
+		margin-right: 0px;
+		transition: opacity 0.2s ease 0.3s, width 0.1s ease 0.1s;
+		opacity: 0;
+		width: 0;
+		img {
+			width: 20px;
+			height: 20px;
+		}
+	}
+}
+
+.isOpen {
+	width: calc(100% - 30px);
+}
+
+.logged-in-as-exit.visable {
+	opacity: 1;
+	width: 55px;
+}
+
+.logged-in-as-user.visable {
+	opacity: 1;
+	width: auto;
+	visibility: visible;
+}
+

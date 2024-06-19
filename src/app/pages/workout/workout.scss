@@ -1,0 +1,155 @@
+@import "../../../theme/utilities/mixins";
+
+:host {
+	.page-scrollable {
+		min-height: auto;
+	}
+	.workout-media {
+		height: 38%;
+		position: relative;
+		app-back-button {
+			position: absolute;
+			left: 20px;
+			top: 20px;
+		}
+		.image {
+			background-position: center;
+			background-size: cover;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.workout-header {
+		@include rgba-background(#32383a, 0.15);
+		padding: 25px 0;
+		.workout-header-title {
+			font-size: 16px;
+			color: var(--text-color);
+			margin-bottom: 20px;
+			line-height: 1;
+			padding: 0 5px;
+			font-weight: bold;
+		}
+		.workout-header-meta {
+			margin-top: 16px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: flex-start;
+			padding: 0 5px;
+			color: var(--text-color);
+			.workout-category {
+				font-size: 11.2px;
+				margin-right: 16px;
+			}
+			.workout-intensity-time {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				.intensity-level {
+					li {
+						background-color: var(--ion-color-tertiary);
+					}
+				}
+				.time {
+					font-size: 10px;
+					font-weight: 500;
+					margin-left: 14px;
+				}
+			}
+		}
+	}
+	.workout-meta-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		li {
+			padding: 18px 5px;
+			border-bottom: 1px solid var(--ion-color-tertiary);
+			display: flex;
+			flex-direction: row;
+			font-size: 12.5px;
+			line-height: 1.2;
+			color: var(--text-color);
+			font-weight: 600;
+			align-items: center;
+			.workout-meta-list-label {
+				min-width: 118px;
+			}
+			.workout-meta-list-icons {
+				display: flex;
+				flex-direction: row;
+				img {
+					height: 30px;
+					width: 36px;
+					margin-right: 12px;
+				}
+			}
+		}
+	}
+	app-ply-life {
+		margin-bottom: 15px;
+	}
+	.favourite {
+		margin-top: 16px;
+		.favourites-button {
+			width: 100%;
+			text-align: right;
+			justify-content: flex-end;
+			cursor: pointer;
+		}
+	}
+	.workout-buttons {
+		margin-top: 50px;
+		margin-bottom: 64px; //80 - 16px the margin button of the last button
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		app-button {
+			margin: 0 5px 24px 5px;
+		}
+		.workout {
+			max-width: 234px;
+			font-size: 16px;
+			height: 46px;
+		}
+	}
+	app-subscription-small {
+		margin-bottom: 54px;
+	}
+	.related-content {
+		margin-bottom: 50px;
+		hr.sep {
+			margin-top: 50px;
+		}
+		.more-workouts {
+			margin-bottom: 50px;
+		}
+		.more-exercises {
+			margin: 50px 0;
+			padding: 0;
+			.page-title {
+				margin-top: 0;
+				font-size: 16px;
+				margin-bottom: 14px;
+			}
+			app-workout-card {
+				margin-bottom: 23px;
+				display: block;
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}
+
+.category-slider {
+	overflow: hidden;
+}

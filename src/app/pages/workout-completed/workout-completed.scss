@@ -1,0 +1,86 @@
+:host {
+	display: block;
+	.ply-logo {
+		margin-top: 15px;
+	}
+	.pb-collectable {
+		margin-bottom: 60px;
+	}
+	.collectables {
+		margin-top: 40px;
+		hr {
+			margin-top: 58px;
+			margin-bottom: 68px;
+		}
+		.collectable {
+			//padding: 0 10px;
+			&-image {
+				border-top-right-radius: 6px;
+				border-top-left-radius: 6px;
+				padding-bottom: 92.6%;
+				background-position: center;
+				background-size: cover;
+				margin-bottom: -1px;
+			}
+			&-content {
+				background-color: var(--ion-color-tertiary);
+				border-bottom-right-radius: 6px;
+				border-bottom-left-radius: 6px;
+				display: flex;
+				flex-direction: column;
+				padding: 16px 16px 16px 16px;
+				justify-content: center;
+				min-height: 94px;
+				color: var(--ion-color-primary);
+				&-title {
+					font-weight: bold;
+					font-size: 12.68px;
+					margin: 0 0 6px 0
+				}
+				&-description {
+					margin: 0;
+					font-size: 10.75px;
+					font-weight: 500;
+				}
+			}
+		}
+	}
+	.share-link {
+		margin-top: 25px;
+		margin-bottom: 58px;
+		padding: 0 10px;
+	}
+	.pb-wrapper {
+		margin-bottom: 32px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	hr.pb-recent-progress-sep {
+		margin: 60px 0;
+	}
+
+	.recent-progresss{
+		app-text{
+			p{
+				font-size: 12.9px;
+			}
+		}
+	}
+}
+
+.container{
+	padding: 0px 32px 0px 28px;
+}
+
+app-ply-life{
+	margin: 50px 0 66px 0;
+	padding-bottom: max(8px, env(safe-area-inset-bottom)) !important;
+}
+
+app-tabs {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+

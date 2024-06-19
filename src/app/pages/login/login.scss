@@ -1,0 +1,84 @@
+@import "../../../theme/utilities/mixins";
+
+:host {
+	ion-content {
+		--background: var(--ion-color-secondary) !important;
+		--keyboard-offset: 0 !important;
+	}
+	.form-container {
+		min-height: 244px;
+		form {
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+			//margin-top: 40px;
+			margin-top: 60px;
+			.form-submit {
+				margin-top: 34px;
+				button {
+					img {
+						height: 25px;
+					}
+				}
+			}
+			input::placeholder {
+				color: rgba(50, 56, 58, 0.15);
+			}
+		}
+	}
+	.login-options {
+		flex-grow: 1;
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			li {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				margin-bottom: 4px;
+				&:last-child {
+					margin-bottom: 0px;
+				}
+				.icon {
+					img {
+						width: 11px;
+						height: 11px;
+					}
+				}
+				.sep {
+					display: inline-block;
+					margin: 0 5px;
+				}
+			}
+		}
+	}
+	.apple-sign-in {
+		appearance: none;
+		-webkit-appearance: none;
+		margin: 20px 0 0 0;
+		border: none;
+		background: #fff;
+		font-size: 16px;
+		cursor: pointer;
+		border-radius: 7px;
+		max-width: 190px;
+		min-height: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: 'SF Pro Display Regular';
+		&-icon {
+			margin-right: 10px;
+		}
+	}
+	.forgot-password {
+		a {
+			font-weight: normal;
+			cursor: pointer;
+		}
+	}
+	app-ply-life {
+		margin-top: 80px;
+	}
+}

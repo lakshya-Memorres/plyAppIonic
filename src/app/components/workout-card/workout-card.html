@@ -1,0 +1,45 @@
+<div class="card" [class.is_premium]="userSubscription == null && workout.is_premium == 1 || userSubscription == 0 && workout.is_premium == 1">
+	<div class="card-media">
+		<div
+			class="image"
+			style="background-image: url('{{workout.images.list}}')"
+		></div>
+		<!-- <div class="image" style="background-image: url('/assets/images/killing-that-kettlebell-workout.jpg')"></div> -->
+	</div>
+	<div class="card-content">
+		<div class="card-content-title">
+			<span class="font-weight-bold">{{workout.name}}</span>
+			<!-- <span class="font-weight-regular">{{workout.type}}</span> -->
+		</div>
+		<ul class="card-content-list">
+			<li>
+				<span class="font-weight-bold">Exercises:</span> {{ workout.exercise_count}}.
+			</li>
+			<li
+				*ngFor="let info of workout.information; let i = index;"
+			>
+				<span class="font-weight-bold">{{info.label}}:</span> {{info.value}}.
+			</li>
+			<!-- <li class="font-weight-bold">
+				{{workout.information[1].label}}:
+				{{workout.information[1].value}}.
+			</li> -->
+		</ul>
+		<div class="card-content-footer">
+			<div class="intensity-level">
+				<ul class="intensity-level-rating level-{{workout.intensity}}">
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<span class="intensity-level-label"> Intensity </span>
+			</div>
+			<div class="time">
+				<span class="value">{{workout.duration_in_mins}}'</span>
+				<button class="forward-button">
+					<img src="/assets/icon/forward-icon.svg" />
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

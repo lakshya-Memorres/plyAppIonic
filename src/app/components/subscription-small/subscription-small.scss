@@ -1,0 +1,31 @@
+@import "../../../theme/utilities/mixins";
+
+:host {
+	display: block;
+	background-color: var(--ion-color-tertiary);
+	padding: 44px 20px 40px 20px;
+	border-radius: 10px;
+	.subscribe-to-ply-btn {
+		display: block;
+		width: 100%;
+		text-align: center;
+		background-color: transparent;
+		margin-bottom: 22px;
+		img {
+			max-width: 250px;
+		}
+	}
+	p {
+		text-align: center;
+		color: var(--ion-color-primary);
+		font-size: 12.1px;
+		margin: 0;
+		strong {
+			display: block;
+			margin: 0 0 7.5px 0;
+			&.underlined-link {
+				color: var(--ion-color-primary);
+			}
+		}
+	}
+}

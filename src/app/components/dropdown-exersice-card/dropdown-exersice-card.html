@@ -1,0 +1,200 @@
+<div
+	class="card-wrapper"
+	[ngClass]="{'expanded' : expanded, 'excercise-completed' : progressState == 'completed', 'rounds' : type == 'rounds'}"
+>
+	<div class="card">
+		<div class="card-media" (click)="goToVideo()">
+			<div
+				class="video"
+				style="background-image: url('{{exercise.image_url}}')"
+			>
+				<img src="/assets/icon/play-button-icon.svg" />
+			</div>
+		</div>
+		<div class="card-content" (click)="tapCard()">
+			<div class="inline-flex">
+				<div class="inline-flex-group flex-grow">
+					<div class="card-content-title">{{exercise.name}}</div>
+					<div class="card-content-rep-list" *ngIf="exercise.sets">
+						<ng-container *ngIf="textOverwriteEnabled == true">
+							<span class="rep">{{textOverwriteValue}}</span>
+						</ng-container>
+						<ng-container *ngIf="textOverwriteEnabled == false">
+							<ng-container
+								*ngFor="let key of cardKeys let i = index;"
+							>
+								<span class="rep">{{key}}</span>
+								<ng-container *ngIf="i + 1 != cardKeys.length">
+									<span class="sep">-</span>
+								</ng-container>
+							</ng-container>
+						</ng-container>
+						<ng-container *ngIf="exercise.type == '1RM'">
+							<span class="sep-rm">|</span>
+							<span class="rep-max">1RM</span>
+						</ng-container>
+					</div>
+				</div>
+				<div class="inline-flex-group">
+					<div class="dropdown-controller">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 16.55 16.55"
+						>
+							<g>
+								<path
+									class="fill-secondary"
+									d="M8.27,16.55a8.28,8.28,0,1,1,8.28-8.28A8.28,8.28,0,0,1,8.27,16.55Z"
+								/>
+								<path
+									class="fill-tertiary"
+									d="M8.72,5v5.34L11.05,8l.4.4-3,3-3-3L5.8,8l2.33,2.33V5Z"
+								/>
+								<path
+									class="fill-tertiary"
+									d="M11.68,8.39,8.42,11.64,5.17,8.39l.63-.63L8,9.94V4.82h.91V9.94l2.17-2.18Zm-3.26,2.8,2.81-2.8-.18-.18L8.56,10.7V5.14H8.29V10.7L5.8,8.21l-.18.18Z"
+								/>
+							</g>
+						</svg>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="expaned-content reps">
+		<div class="set-list">
+			<ng-container
+				*ngFor="let exerciseSet of exercisSets; let i = index;"
+			>
+				<div class="set fade-in" data-label="i">
+					<div class="set-count">{{exerciseSet.order}}.</div>
+					<div class="set-input-group">
+						<label>{{exerciseSet.left.name}}:</label>
+						<div class="input-with-unit">
+							<ng-container
+								*ngIf="exerciseSet.left.name == 'Time'"
+							>
+								<input
+									value=""
+									class="time-input"
+									*ngIf="historyCard == false"
+									type="number"
+									inputmode="decimal"
+									placeholder="{{exerciseSet.left.value}}"
+									name="{{exerciseSet.left.name}}"
+									(change)="updateSet($event, exerciseSet, exerciseSet.left.name )"
+									(click)="showBasicPicker($event, exerciseSet)"
+								/>
+								<span class="text-time" [ngClass]="{'notPlaceholder': historyCard == true}">
+									 {{ convertSecs(exerciseSet.left.value) }}
+								</span>
+							</ng-container>
+							<ng-container
+								*ngIf="exerciseSet.left.name != 'Time'"
+							>
+								<input
+									value=""
+									*ngIf="historyCard == false"
+									type="number"
+									inputmode="decimal"
+									placeholder="{{exerciseSet.left.value}}"
+									name="{{exerciseSet.left.name}}"
+									(change)="updateSet($event, exerciseSet, exerciseSet.left.name )"
+								/>
+								<input
+									*ngIf="historyCard == true"
+									type="number"
+									inputmode="decimal"
+									value="{{exerciseSet.left.value}}"
+									name="{{exerciseSet.left.name}}"
+									disabled
+								/>
+								<span class="text">
+									{{renderUnit(exerciseSet.left.name)}}
+								</span>
+							</ng-container>
+							<ng-container
+								*ngIf="exerciseSet.left.name == 'Load'"
+							>
+								<ng-container *ngIf="unit == 'metric'">
+									<span class="text">kg</span>
+								</ng-container>
+								<ng-container *ngIf="unit == 'imperial'">
+									<span class="text">lbs</span>
+								</ng-container>
+							</ng-container>
+						</div>
+					</div>
+					<div
+						*ngIf="exerciseSet.right.name !== 'N/A'"
+						class="set-input-group"
+					>
+						<label>{{exerciseSet.right.name}}:</label>
+						<div class="input-with-unit">
+							<ng-container
+								*ngIf="exerciseSet.right.name == 'Time'"
+							>
+								<input
+									value=""
+									class="time-input"
+									*ngIf="historyCard == false"
+									type="number"
+									inputmode="decimal"
+									placeholder="{{exerciseSet.right.value}}"
+									name="{{exerciseSet.right.name}}"
+									(change)="updateSet($event, exerciseSet, exerciseSet.right.name )"
+									(click)="showBasicPicker($event, exerciseSet)"
+								/>
+								<span class="text-time" [ngClass]="{'notPlaceholder': historyCard == true}">
+									 {{ convertSecs(exerciseSet.right.value) }}
+								</span>
+							</ng-container>
+							<ng-container
+								*ngIf="exerciseSet.right.name != 'Time'"
+							>
+								<input
+									value=""
+									*ngIf="historyCard == false"
+									type="number"
+									inputmode="decimal"
+									placeholder="{{exerciseSet.right.value}}"
+									name="{{exerciseSet.right.name}}"
+									(change)="updateSet($event, exerciseSet, exerciseSet.right.name)"
+								/>
+								<input
+									*ngIf="historyCard == true"
+									type="number"
+									inputmode="decimal"
+									value="{{exerciseSet.right.value}}"
+									name="{{exerciseSet.right.name}}"
+									disabled
+								/>
+								<span class="text">
+									{{renderUnit(exerciseSet.right.name)}}
+								</span>
+							</ng-container>
+							<ng-container
+								*ngIf="exerciseSet.right.name == 'Load'"
+							>
+								<ng-container *ngIf="unit == 'metric'">
+									<span class="text">kg</span>
+								</ng-container>
+								<ng-container *ngIf="unit == 'imperial'">
+									<span class="text">lbs</span>
+								</ng-container>
+							</ng-container>
+						</div>
+					</div>
+				</div>
+			</ng-container>
+			<ng-container *ngIf="historyCard == false">
+				<div class="add-button" (click)="addSetToExerciseSets()">
+					<div class="text-underline">Add Set</div>
+					<img src="/assets/icon/plus-icon.svg" />
+				</div>
+				<hr />
+			</ng-container>
+			<app-button *ngIf="historyCard == false" (click)="saveSelectedExercise()">Save.</app-button>
+		</div>
+	</div>
+</div>

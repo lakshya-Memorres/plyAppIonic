@@ -1,0 +1,24 @@
+<div
+	class="want-more-cta"
+>
+	<hr />
+	<div class="want-more-cta-btn">
+		<img src="/assets/icon/contactUs.svg" />
+	</div>
+	<p>
+		<strong
+			>Looking for something more, or have a thoughtful suggestion, we’d
+			love to hear from you,</strong
+		>
+		just drop us an email at
+		<a href="mailto:hello@ply.life">hello@ply.life</a> thanks!
+	</p>
+	<a href="mailto:hello@ply.life" class="button-wrapper">
+		<ng-container *ngIf="torgButton == 'false'">
+			<img src="/assets/icon/back-button-icon.svg" />
+		</ng-container>
+		<ng-container *ngIf="torgButton == 'true'">
+			<img src="/assets/icon/back-button-icon-torg.svg" />
+		</ng-container>
+	</a>
+</div>

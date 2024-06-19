@@ -1,0 +1,16 @@
+@function convert($value) {
+	$strippedValue: $value / ($value * 0 + 1);
+	// @return 0px + ($strippedValue * 1.3333);
+    @return 0px + ($strippedValue * 1.8);
+}
+
+@mixin rgba-background($hexcolor, $opacity) {
+	background-color: $hexcolor;
+	background-color: rgba($hexcolor, $opacity);
+}
+
+@mixin rgba-border($hexcolor, $opacity) {
+	border-color: $hexcolor;
+	border-color: rgba($hexcolor, $opacity);
+	--border: rgba($hexcolor, $opacity);
+}

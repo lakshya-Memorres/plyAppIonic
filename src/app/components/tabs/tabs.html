@@ -1,0 +1,25 @@
+<ion-tab-bar slot="bottom" translucent="true" mode="md">
+	<ion-tab-button
+		(click)="goToDashBoard(0)"
+		[ngClass]="{'active' : tabIndex === 0 }"
+	>
+		<img src="/assets/icon/workout-icon.svg" />
+		<ion-label>Workouts</ion-label>
+	</ion-tab-button>
+	<ion-tab-button
+		(click)="goToMyPly(1)"
+		class="my-ply"
+		[ngClass]="{'active' : tabIndex === 1 }"
+	>
+		<img src="/assets/icon/my-ply-icon.svg" />
+		<ion-label>My Ply</ion-label>
+	</ion-tab-button>
+	<ion-tab-button
+		tab="more"
+		(click)="goToMore(2)"
+		[ngClass]="{'active' : tabIndex === 2 }"
+	>
+		<img src="/assets/icon/more-icon.svg" />
+		<ion-label>More</ion-label>
+	</ion-tab-button>
+</ion-tab-bar>

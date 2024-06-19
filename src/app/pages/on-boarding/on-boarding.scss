@@ -1,0 +1,109 @@
+@import "../../../theme/utilities/mixins";
+
+ion-content {
+	.container {
+		display: flex;
+		flex-flow: column;
+		height: 100%;
+		.ply-logo {
+			margin-bottom: -20px;
+			transition: all 0.2s ease;
+		}
+		.box {
+			display: flex;
+			flex-grow: 1;
+			overflow: hidden;
+		}
+	}
+}
+
+// .slider-wrapper {
+// 	display: flex;
+// 	flex-direction: column;
+// }
+
+.on-boarding-slide {
+	width: 92%;
+    max-width: 420px;
+    margin: 0 0 0 auto;
+	@media screen and (min-width: 540px) {
+		margin: 0 auto;
+	}
+	&.additional-padding {
+		padding: 0 16px;
+	}
+	&-image-wrapper {
+		width: 100%;
+		.image {
+			width: 100%;
+			background-size: cover;
+			padding-bottom: 58vh;
+			background-position: center;
+			@media screen and (max-height: 640px) {
+				padding-bottom: 100%;
+			}
+		}
+	}
+	.padding-left {
+		padding-left: 4%;
+	}
+
+	.padding-left-less {
+		padding-left: 2%;
+	}
+
+	margin-right {
+		margin-right: -8px;
+	}
+
+	.padding-right {
+		padding-right: 4%;
+		& + app-text {
+			margin-top: 10px;
+		}
+	}
+	app-text {
+		//margin-top: 20px;
+		min-height: 51px;
+		&.text-align-left {
+			margin: 20px 0 0 -20px;
+		}
+
+		&.padding-left {
+			text-align: left;
+		}
+	}
+}
+
+.on-boarding-navigation {
+	// margin-top: 25px;
+	// margin-bottom: 32px;
+	position: relative;
+	z-index: 99999;
+	cursor: pointer;
+	margin-top: 16px;
+	margin-bottom: max(16px, env(safe-area-inset-bottom)) !important;
+	.on-boarding-navigation-button {
+		font-weight: bold;
+		font-size: 11px;
+		color: var(--text-color);
+		display: block;
+		text-align: right;
+	}
+	.next {
+		display: flex;
+		text-align: right;
+		width: 100%;
+		font-size: 15px;
+		color: var(--text-color);
+		align-items: center;
+		font-weight: bold;
+		justify-content: flex-end;
+		.underline {
+			text-decoration: underline;
+		}
+		img {
+			width: 20px;
+		}
+	}
+}

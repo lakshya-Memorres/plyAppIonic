@@ -1,0 +1,512 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {
+      "app/src/main/AndroidManifest.xml": {
+        "parents": {
+          "/manifest/application": [
+            {
+              "xml": "<application android:networkSecurityConfig=\"@xml/network_security_config\" />",
+              "count": 1,
+              "mode": "merge",
+              "id": "config.xml",
+              "oldAttrib": {
+                "android:hardwareAccelerated": "true",
+                "android:icon": "@mipmap/ic_launcher",
+                "android:label": "@string/app_name",
+                "android:networkSecurityConfig": "@xml/network_security_config",
+                "android:supportsRtl": "true"
+              }
+            }
+          ]
+        }
+      },
+      "res/xml/config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"NativeStorage\"><param name=\"android-package\" value=\"NativeStorage\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"SocialSharing\"><param name=\"android-package\" value=\"nl.xservices.plugins.SocialSharing\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"FacebookConnectPlugin\"><param name=\"android-package\" value=\"org.apache.cordova.facebook.ConnectPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<access origin=\"https://m.facebook.com\" />",
+              "count": 1
+            },
+            {
+              "xml": "<access origin=\"https://graph.facebook.com\" />",
+              "count": 1
+            },
+            {
+              "xml": "<access origin=\"https://api.facebook.com\" />",
+              "count": 1
+            },
+            {
+              "xml": "<access origin=\"https://*.fbcdn.net\" />",
+              "count": 1
+            },
+            {
+              "xml": "<access origin=\"https://*.akamaihd.net\" />",
+              "count": 1
+            },
+            {
+              "xml": "<preference name=\"android-minSdkVersion\" value=\"22\" />",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"CDVOrientation\"><param name=\"android-package\" value=\"cordova.plugins.screenorientation.CDVOrientation\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"FirebaseAnalytics\"><param name=\"android-package\" value=\"by.chemerisuk.cordova.firebase.FirebaseAnalyticsPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"InAppBillingV3\"><param name=\"android-package\" value=\"com.alexdisler.inapppurchases.InAppBillingV3\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"GooglePlus\"><param name=\"android-package\" value=\"nl.xservices.plugins.GooglePlus\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<access origin=\"https://accounts.google.com/*\" />",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Bugfender\"><param name=\"android-package\" value=\"com.bugfender.sdk.cordova.BugfenderPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"CDVIonicKeyboard\"><param name=\"android-package\" onload=\"true\" value=\"io.ionic.keyboard.CDVIonicKeyboard\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<allow-navigation href=\"http://localhost/*\" />",
+              "count": 1
+            },
+            {
+              "xml": "<allow-navigation href=\"https://localhost/*\" />",
+              "count": 1
+            },
+            {
+              "xml": "<allow-navigation href=\"ionic://*\" />",
+              "count": 1
+            },
+            {
+              "xml": "<preference name=\"webView\" value=\"com.ionicframework.cordova.webview.IonicWebViewEngine\" />",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"IonicWebView\"><param name=\"android-package\" value=\"com.ionicframework.cordova.webview.IonicWebView\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<preference name=\"AndroidXEnabled\" value=\"true\" />",
+              "count": 1
+            },
+            {
+              "xml": "<preference name=\"GradlePluginGoogleServicesEnabled\" value=\"true\" />",
+              "count": 1
+            },
+            {
+              "xml": "<preference name=\"GradlePluginGoogleServicesVersion\" value=\"4.3.8\" />",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "AndroidManifest.xml": {
+        "parents": {
+          "/*/application": [
+            {
+              "xml": "<receiver android:enabled=\"true\" android:exported=\"true\" android:name=\"nl.xservices.plugins.ShareChooserPendingIntent\"><intent-filter><action android:name=\"android.intent.action.SEND\" /></intent-filter></receiver>",
+              "count": 1
+            }
+          ],
+          "/*": [
+            {
+              "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+              "count": 2
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+              "count": 1
+            }
+          ],
+          "/manifest/application": [
+            {
+              "xml": "<provider android:authorities=\"${applicationId}.sharing.provider\" android:exported=\"false\" android:grantUriPermissions=\"true\" android:name=\"nl.xservices.plugins.FileProvider\"><meta-data android:name=\"android.support.FILE_PROVIDER_PATHS\" android:resource=\"@xml/sharing_paths\" /></provider>",
+              "count": 1
+            },
+            {
+              "xml": "<meta-data android:name=\"firebase_analytics_collection_enabled\" android:value=\"true\" />",
+              "count": 1
+            },
+            {
+              "xml": "<meta-data android:name=\"google_analytics_automatic_screen_reporting_enabled\" android:value=\"true\" />",
+              "count": 1
+            }
+          ],
+          "application": [
+            {
+              "xml": "<meta-data android:name=\"com.facebook.sdk.ApplicationId\" android:value=\"@string/fb_app_id\" />",
+              "count": 1
+            },
+            {
+              "xml": "<meta-data android:name=\"com.facebook.sdk.ApplicationName\" android:value=\"@string/fb_app_name\" />",
+              "count": 1
+            },
+            {
+              "xml": "<activity android:configChanges=\"keyboard|keyboardHidden|screenLayout|screenSize|orientation\" android:label=\"@string/fb_app_name\" android:name=\"com.facebook.FacebookActivity\" />",
+              "count": 1
+            }
+          ],
+          "/manifest": [
+            {
+              "xml": "<uses-permission android:name=\"com.android.vending.BILLING\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.USE_CREDENTIALS\" />",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "res/values/facebookconnect.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<string name=\"fb_app_id\">424885708601384</string>",
+              "count": 1
+            },
+            {
+              "xml": "<string name=\"fb_app_name\">Ply</string>",
+              "count": 1
+            },
+            {
+              "xml": "<bool name=\"fb_hybrid_app_events\">false</bool>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "app/src/main/res/values/facebookconnect.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<string name=\"fb_app_id\">424885708601384</string>",
+              "count": 1
+            },
+            {
+              "xml": "<string name=\"fb_app_name\">Ply</string>",
+              "count": 1
+            },
+            {
+              "xml": "<bool name=\"fb_hybrid_app_events\">false</bool>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "res/values/strings.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<string name=\"BUGFENDER_APP_KEY\">Ei56MijYDEBvCyX3d2RmfsG4NLMzhhMt</string>",
+              "count": 1
+            },
+            {
+              "xml": "<string name=\"BUGFENDER_AUTOMATIC\">ALL</string>",
+              "count": 1
+            },
+            {
+              "xml": "<string name=\"BUGFENDER_BASE_URL\">unset</string>",
+              "count": 1
+            },
+            {
+              "xml": "<string name=\"BUGFENDER_API_URL\">unset</string>",
+              "count": 1
+            },
+            {
+              "xml": "<string name=\"BUGFENDER_HIDE_DEVICE_NAME\">unset</string>",
+              "count": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.ply.app"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.ply.app"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.ply.app"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.ply.app"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "com.ply.app"
+    },
+    "cordova-plugin-nativestorage": {
+      "PACKAGE_NAME": "com.ply.app"
+    },
+    "cordova-plugin-ionic-webview": {
+      "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+",
+      "PACKAGE_NAME": "com.ply.app"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.ply.app"
+    },
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "com.ply.app"
+    },
+    "cordova-plugin-x-socialsharing": {
+      "PACKAGE_NAME": "com.ply.app"
+    },
+    "cordova-plugin-facebook4": {
+      "APP_ID": "424885708601384",
+      "APP_NAME": "Ply",
+      "FACEBOOK_HYBRID_APP_EVENTS": "false",
+      "FACEBOOK_ANDROID_SDK_VERSION": "5.13.0",
+      "PACKAGE_NAME": "com.ply.app"
+    },
+    "cordova-plugin-screen-orientation": {
+      "PACKAGE_NAME": "com.ply.app"
+    },
+    "cordova-support-android-plugin": {
+      "PACKAGE_NAME": "com.ply.app"
+    },
+    "cordova-plugin-firebase-analytics": {
+      "ANALYTICS_COLLECTION_ENABLED": "true",
+      "AUTOMATIC_SCREEN_REPORTING_ENABLED": "true",
+      "ANDROID_FIREBASE_ANALYTICS_VERSION": "19.0.+",
+      "PACKAGE_NAME": "com.ply.app"
+    },
+    "cordova-plugin-inapppurchase": {
+      "PACKAGE_NAME": "com.ply.app"
+    },
+    "cordova-plugin-androidx-adapter": {
+      "PACKAGE_NAME": "com.ply.app"
+    },
+    "cordova-plugin-googleplus": {
+      "PLAY_SERVICES_VERSION": "15.0.1",
+      "PACKAGE_NAME": "com.ply.app"
+    },
+    "cordova-plugin-bugfender": {
+      "BUGFENDER_APP_KEY": "Ei56MijYDEBvCyX3d2RmfsG4NLMzhhMt",
+      "BUGFENDER_AUTOMATIC": "ALL",
+      "BUGFENDER_BASE_URL": "unset",
+      "BUGFENDER_API_URL": "unset",
+      "BUGFENDER_HIDE_DEVICE_NAME": "unset",
+      "PACKAGE_NAME": "com.ply.app"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "id": "cordova-plugin-statusbar.statusbar",
+      "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+      "pluginId": "cordova-plugin-statusbar",
+      "clobbers": [
+        "window.StatusBar"
+      ]
+    },
+    {
+      "id": "cordova-plugin-device.device",
+      "file": "plugins/cordova-plugin-device/www/device.js",
+      "pluginId": "cordova-plugin-device",
+      "clobbers": [
+        "device"
+      ]
+    },
+    {
+      "id": "cordova-plugin-splashscreen.SplashScreen",
+      "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+      "pluginId": "cordova-plugin-splashscreen",
+      "clobbers": [
+        "navigator.splashscreen"
+      ]
+    },
+    {
+      "id": "cordova-plugin-ionic-keyboard.keyboard",
+      "file": "plugins/cordova-plugin-ionic-keyboard/www/android/keyboard.js",
+      "pluginId": "cordova-plugin-ionic-keyboard",
+      "clobbers": [
+        "window.Keyboard"
+      ]
+    },
+    {
+      "id": "cordova-plugin-nativestorage.mainHandle",
+      "file": "plugins/cordova-plugin-nativestorage/www/mainHandle.js",
+      "pluginId": "cordova-plugin-nativestorage",
+      "clobbers": [
+        "NativeStorage"
+      ]
+    },
+    {
+      "id": "cordova-plugin-nativestorage.LocalStorageHandle",
+      "file": "plugins/cordova-plugin-nativestorage/www/LocalStorageHandle.js",
+      "pluginId": "cordova-plugin-nativestorage"
+    },
+    {
+      "id": "cordova-plugin-nativestorage.NativeStorageError",
+      "file": "plugins/cordova-plugin-nativestorage/www/NativeStorageError.js",
+      "pluginId": "cordova-plugin-nativestorage"
+    },
+    {
+      "id": "cordova-plugin-ionic-webview.IonicWebView",
+      "file": "plugins/cordova-plugin-ionic-webview/src/www/util.js",
+      "pluginId": "cordova-plugin-ionic-webview",
+      "clobbers": [
+        "Ionic.WebView"
+      ]
+    },
+    {
+      "id": "cordova-plugin-inappbrowser.inappbrowser",
+      "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+      "pluginId": "cordova-plugin-inappbrowser",
+      "clobbers": [
+        "cordova.InAppBrowser.open"
+      ]
+    },
+    {
+      "id": "es6-promise-plugin.Promise",
+      "file": "plugins/es6-promise-plugin/www/promise.js",
+      "pluginId": "es6-promise-plugin",
+      "runs": true
+    },
+    {
+      "id": "cordova-plugin-x-socialsharing.SocialSharing",
+      "file": "plugins/cordova-plugin-x-socialsharing/www/SocialSharing.js",
+      "pluginId": "cordova-plugin-x-socialsharing",
+      "clobbers": [
+        "window.plugins.socialsharing"
+      ]
+    },
+    {
+      "id": "cordova-plugin-facebook4.FacebookConnectPlugin",
+      "file": "plugins/cordova-plugin-facebook4/www/facebook-native.js",
+      "pluginId": "cordova-plugin-facebook4",
+      "clobbers": [
+        "facebookConnectPlugin"
+      ]
+    },
+    {
+      "id": "cordova-plugin-screen-orientation.screenorientation",
+      "file": "plugins/cordova-plugin-screen-orientation/www/screenorientation.js",
+      "pluginId": "cordova-plugin-screen-orientation",
+      "clobbers": [
+        "cordova.plugins.screenorientation",
+        "screen.orientation"
+      ]
+    },
+    {
+      "id": "cordova-plugin-firebase-analytics.FirebaseAnalytics",
+      "file": "plugins/cordova-plugin-firebase-analytics/www/FirebaseAnalytics.js",
+      "pluginId": "cordova-plugin-firebase-analytics",
+      "merges": [
+        "cordova.plugins.firebase.analytics"
+      ]
+    },
+    {
+      "id": "cordova-plugin-inapppurchase.InAppBillingV3",
+      "file": "plugins/cordova-plugin-inapppurchase/www/index-android.js",
+      "pluginId": "cordova-plugin-inapppurchase",
+      "merges": [
+        "inAppPurchase"
+      ]
+    },
+    {
+      "id": "cordova-plugin-googleplus.GooglePlus",
+      "file": "plugins/cordova-plugin-googleplus/www/GooglePlus.js",
+      "pluginId": "cordova-plugin-googleplus",
+      "clobbers": [
+        "window.plugins.googleplus"
+      ]
+    },
+    {
+      "id": "cordova-plugin-bugfender.bugfender",
+      "file": "plugins/cordova-plugin-bugfender/www/bugfender.js",
+      "pluginId": "cordova-plugin-bugfender",
+      "clobbers": [
+        "window.Bugfender"
+      ]
+    },
+    {
+      "id": "cordova-plugin-bugfender.bf-util",
+      "file": "plugins/cordova-plugin-bugfender/www/bf-util.js",
+      "pluginId": "cordova-plugin-bugfender"
+    }
+  ],
+  "plugin_metadata": {
+    "cordova-plugin-whitelist": "1.3.5",
+    "cordova-plugin-statusbar": "2.4.3",
+    "cordova-plugin-device": "2.1.0",
+    "cordova-plugin-splashscreen": "5.0.4",
+    "cordova-plugin-ionic-keyboard": "2.2.0",
+    "cordova-plugin-nativestorage": "2.3.2",
+    "cordova-plugin-ionic-webview": "4.2.1",
+    "cordova-plugin-inappbrowser": "4.1.0",
+    "es6-promise-plugin": "4.2.2",
+    "cordova-plugin-x-socialsharing": "6.0.4",
+    "cordova-plugin-facebook4": "6.4.0",
+    "cordova-plugin-screen-orientation": "3.0.4",
+    "cordova-support-android-plugin": "1.0.2",
+    "cordova-plugin-firebase-analytics": "6.1.0",
+    "cordova-plugin-inapppurchase": "1.1.0",
+    "cordova-plugin-androidx-adapter": "1.1.3",
+    "cordova-plugin-googleplus": "8.5.2",
+    "cordova-plugin-bugfender": "2.0.2"
+  }
+}

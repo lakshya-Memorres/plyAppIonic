@@ -1,0 +1,24 @@
+@import "../../../theme/utilities/mixins";
+
+:host {
+	.page-scrollable {
+		padding-bottom: 10px;
+	}
+	app-ply-life {
+		margin-top: 50px;
+	}
+	app-main-slider {
+		margin-bottom: 5px;
+	}
+	.custom-workouts {
+		margin-top: 30px;
+	}
+}
+
+app-subscription {
+	margin-top: 66px;
+	display: block;
+	.challenge-icon {
+		display: none !important;
+	}
+}

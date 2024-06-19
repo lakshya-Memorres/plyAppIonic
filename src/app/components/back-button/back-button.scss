@@ -1,0 +1,25 @@
+@import "../../../theme/utilities/mixins";
+
+:host {
+	.back-button-wrapper {
+		display: block;
+		align-items: center;
+		justify-content: center;
+		margin-top: max(30px, env(safe-area-inset-top));
+		img {
+			width: 29px;
+			height: 28px;
+		}
+	}
+	&.forward {
+		img {
+			margin-top: 25px;
+			transform: rotate(-180deg);
+		}
+	}
+	&.center {
+		img {
+			width: 100% !important;
+		}
+	}
+}

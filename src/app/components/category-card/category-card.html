@@ -1,0 +1,13 @@
+<ion-item class="card" (click)="getExerciseCategoriesByID()">
+	<div class="card-media" (click)="goTovideo()">
+		<div
+			class="video"
+			style="background-image: url('{{category.image_url}}')"
+		>
+			<!-- <img src="/assets/icon/play-button-icon.svg" [ngClass]="{'hide' : type == 'image'}"/> -->
+		</div>
+	</div>
+	<div class="card-content">
+		<div class="card-content-title">{{category.name}}</div>
+	</div>
+</ion-item>

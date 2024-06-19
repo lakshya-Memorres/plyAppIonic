@@ -1,0 +1,105 @@
+<ion-content>
+	<app-workout-header
+		workoutUpdated="{{workoutUpdated}}"
+		[workout]="workout"
+		routeOrigin="{{routeOrigin}}"
+	>
+	</app-workout-header>
+	<div class="container page-scrollable">
+		<app-text>
+			<p>
+				Tap for <strong>Data Entry</strong>
+			</p>
+		</app-text>
+		<app-text>
+			<ng-container
+				*ngIf="workout.type == 'Circuit' && workout.rounds > 1"
+			>
+				<div class="rounds-input-group">
+					<label>Rounds</label>
+					<div class="current-rounds">
+						<div class="currentRounds">{{currentRound}}</div>
+						of
+						<div class="rounds">{{workout.rounds}}</div>
+					</div>
+				</div>
+			</ng-container>
+		</app-text>
+		<div class="exercise-list">
+			<app-workout-round
+				*ngFor="let round of workout.exercisesFormatted; let roundNumber = index"
+				[ngClass]="{'showRound' : roundNumber == currentRoundIndex}"
+			>
+				<ng-container *ngFor="let excercise of round; let i = index">
+					<ng-container *ngIf="excercise.superset == true ">
+						<div class="superset">
+							<app-dropdown-exersice-card
+								(saveSelectedExerciseProgress)="saveSelectedExerciseProgress($event)"
+								(openSelectedSavedExercise)="openSelectedSavedExercise($event)"
+								(updated)="updated($event)"
+								*ngFor="let excercise of excercise.exercises; let j = index;"
+								[index]="i"
+								[supersetIndex]="j"
+								[roundNumber]="roundNumber"
+								[exercise]="excercise"
+								[unit]="unit"
+								[workoutID]="workout.id"
+								[historyCard]="false"
+								[workoutUnsaved]="workoutUnsaved"
+							></app-dropdown-exersice-card>
+						</div>
+					</ng-container>
+					<ng-container *ngIf="excercise.superset == false ">
+						<app-dropdown-exersice-card
+							(saveSelectedExerciseProgress)="saveSelectedExerciseProgress($event)"
+							(openSelectedSavedExercise)="openSelectedSavedExercise($event)"
+							(updated)="updated($event)"
+							[index]="i"
+							[exercise]="excercise"
+							[roundNumber]="roundNumber"
+							[unit]="unit"
+							[workoutID]="workout.id"
+							[historyCard]="false"
+							[workoutUnsaved]="workoutUnsaved"
+						></app-dropdown-exersice-card>
+					</ng-container>
+				</ng-container>
+			</app-workout-round>
+		</div>
+
+		<div class="inline-flex favourite">
+			<div
+				*ngIf="workout.is_favourite == true"
+				class="favourites-button"
+				(click)="queRemoveFavourite()"
+			>
+				<div class="text-underline">Favourites</div>
+				<span> -</span>
+			</div>
+			<div
+				*ngIf="workout.is_favourite == false"
+				class="favourites-button"
+				(click)="queAddFavourite()"
+			>
+				<div class="text-underline">Favourites</div>
+				<img src="/assets/icon/plus-icon.svg" />
+			</div>
+		</div>
+
+		<div
+			class="rounds-navigation"
+			*ngIf="workout.type == 'Circuit' && workout.rounds > 1"
+		>
+			<app-button *ngIf="currentRound > 1" (click)="goToPrevRound()">
+				Prev Round
+			</app-button>
+			<app-button
+				*ngIf="currentRound < workout.rounds"
+				(click)="goToNextRound()"
+			>
+				Next Round
+			</app-button>
+		</div>
+	</div>
+	<app-timer (workoutFinished)="finishWorkout($event)"></app-timer>
+</ion-content>

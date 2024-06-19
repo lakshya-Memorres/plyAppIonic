@@ -1,0 +1,10 @@
+{
+  "name": "ply-app-new",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {
+      "enabled": false
+    }
+  },
+  "type": "angular"
+}

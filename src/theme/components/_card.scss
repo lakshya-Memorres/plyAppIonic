@@ -1,0 +1,126 @@
+.card {
+	display: flex;
+	flex-direction: row;
+	border-radius: 10px;
+	background-color: var(--ion-color-tertiary);
+	transition: all 0.2s ease;
+	// margin: 0px -6px 0px -7px;
+	&-media {
+		flex-basis: 30%;
+		.image {
+			background-position: center;
+			height: 100%;
+			background-size: cover;
+			border-top-left-radius: 9px;
+			border-bottom-left-radius: 9px;
+		}
+		.video {
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			border-top-left-radius: 9px;
+    		border-bottom-left-radius: 9px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+			transition: all 0.2s ease;
+			img {
+				width: 23px;
+				height: 23px;
+			}
+		}
+		.play-icon {
+			img {
+				width: 23px;
+				height: 23px;
+				position: absolute;
+				top: 26px;
+				left: 39px;
+			}
+		}
+	}
+	&-content {
+		flex-basis: 70%;
+		padding: 20px 16px;
+		color: var(--ion-color-primary);
+		&-title {
+			font-size: 13px;
+			font-weight: bold;
+			margin-bottom: 12px;
+		}
+		&-list {
+			//font-size: 12px;
+			font-size: 11px;
+			list-style: none;
+			padding: 0;
+			margin: 0 0 12px 0;
+		}
+		&-rep-list {
+			display: flex;
+			flex-direction: row;
+			font-size: 10px;
+			font-weight: bold;
+			flex-wrap: wrap;
+			width: 90%;
+			span {
+				padding: 0 1px;
+			}
+			.last-child {
+				.sep {
+					display: none !important;
+				}
+			}
+			.sep-rm {
+				padding: 0 3px;
+			}
+			.sep-rm,
+			.rep-max {
+				color: #aee0cd;
+			}
+		}
+		&-footer {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			.time {
+				font-weight: 500;
+				font-size: 12px;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				.value {
+					margin-right: 10px;
+					line-height: 1.2;
+				}
+			}
+
+			button {
+				background-color: transparent;
+				padding: 0;
+				img {
+					width: 13px;
+					height: 13px;
+				}
+			}
+		}
+	}
+	&.sliding {
+		margin: 0px;
+	}
+	ion-item {
+		--background: var(--ion-color-tertiary);
+		.card-media {
+			.image {
+				height: 200px;
+				width: 96px;
+			}
+		}
+	}
+}
+
+ion-list {
+	margin-bottom: 20px !important;
+}

@@ -1,0 +1,144 @@
+<ion-content>
+	<div class="workout-header-container">
+		<div class="container center test">
+			<div class="cancel-workout" (click)="goBack()">
+				<img src="/assets/icon/back-button-icon.svg" />
+			</div>
+			<div class="ply-logo text-align-right">
+				<img src="/assets/images/ply-logo.svg" />
+			</div>
+			<div class="workout-header">
+				<div
+					class="workout-header-title swap-title"
+					(click)="confirmSwap()"
+				>
+					<strong>Swap Exercise...</strong>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container center page-scrollable mainContent">
+		<div class="exercise-being-swapped">
+			<app-swap-exercise-card
+				[originalExercise]="originalExercise"
+				[swappedExercise]=""
+				(swapSelectedExercise)="setToOriginalExercise($event)"
+			></app-swap-exercise-card>
+			<div class="workout-header-text">
+				Select from the list of exercise alternatives below, presented
+				in scale.
+			</div>
+			<!-- <div class="confirm-swap" (click)="confirmSwap()">
+				<div
+					class="add-button swap-button"
+					[ngClass]="{'swappedExercise' : exercisesHasBeenSwapped == true }"
+				>
+					<div class="text-underline">Confirm Swap</div>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 15.02 15.02"
+					>
+						<defs>
+							<style>
+								.cls-1 {
+									isolation: isolate;
+								}
+								.cls-2,
+								.cls-3 {
+									fill: #32383a;
+									transition: all 0.2s ease-in;
+								}
+								.cls-2 {
+									opacity: 0.15;
+									mix-blend-mode: multiply;
+								}
+								.swappedExerciseBackground {
+									opacity: 1;
+								}
+								.swappedExerciseIconTick {
+									fill: #a2c6b8;
+								}
+							</style>
+						</defs>
+						<g class="cls-1">
+							<g id="Layer_2" data-name="Layer 2">
+								<g
+									id="Design_Development"
+									data-name="Design Development"
+								>
+									<path
+										class="cls-2"
+										[ngClass]="{'swappedExerciseBackground' : exercisesHasBeenSwapped == true }"
+										d="M7.51,0A7.51,7.51,0,1,1,0,7.51,7.51,7.51,0,0,1,7.51,0Z"
+									/>
+									<path
+										class="cls-3"
+										[ngClass]="{'swappedExerciseIconTick' : exercisesHasBeenSwapped == true }"
+										d="M9.91,5.36,6.39,8.88,4.48,7l-.86.85L6.39,10.6l4.38-4.38Z"
+									/>
+								</g>
+							</g>
+						</g>
+					</svg>
+				</div>
+				<hr />
+			</div> -->
+		</div>
+		<ion-spinner *ngIf="loading == true" name="dots"></ion-spinner>
+		<ng-container *ngIf="loading == false">
+			<div class="swap-options">
+
+				<ng-container *ngIf="suggestedProgressive != null">
+					<div class="swap-section-title">
+						<strong>Progressive</strong> Exercises
+					</div>
+					<ng-container *ngFor="let exercise of suggestedProgressive;">
+						<ng-container *ngIf="exercise.exercise.superset == false">
+							<app-swap-exercise-card
+								[suggestion]="exercise"
+								(swapSelectedExercise)="swapExercise($event)"
+								[swappedExercise]="swappedExercise"
+							></app-swap-exercise-card>
+						</ng-container>
+					</ng-container>
+				</ng-container>
+
+				<ng-container *ngIf="suggestedProgressive == null">
+					<div class="swap-section-title">
+						<strong>No Progressive</strong> Exercises
+					</div>
+				</ng-container>
+
+				<hr class="ion-margin-bottom" />
+
+				<ng-container *ngIf="suggestedRegressive != null">
+					<div class="swap-section-title">
+						<strong>Regressive</strong> Exercises
+					</div>
+					<ng-container *ngFor="let exercise of suggestedRegressive;">
+						<app-swap-exercise-card
+							*ngIf="exercise.exercise.superset == false"
+							[suggestion]="exercise"
+							(swapSelectedExercise)="swapExercise($event)"
+							[swappedExercise]="swappedExercise"
+						></app-swap-exercise-card>
+					</ng-container>
+				</ng-container>
+
+				<ng-container *ngIf="suggestedRegressive == null">
+					<div class="swap-section-title">
+						<strong>No Regressive</strong> Exercises
+					</div>
+				</ng-container>
+
+				<hr />
+			</div>
+		</ng-container>
+	</div>
+	<app-want-more-cta></app-want-more-cta>
+	<app-ply-life
+		class="container text-align-right padding-bottom"
+	></app-ply-life>
+</ion-content>
+
+<app-tabs selectedIndex="0" slot="fixed"></app-tabs>

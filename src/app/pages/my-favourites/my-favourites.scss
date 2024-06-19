@@ -1,0 +1,88 @@
+@import "../../../theme/utilities/mixins";
+
+:host {
+	ion-content {
+		.page {
+			height: unset;
+		}
+		.page-subtitle {
+			font-size: 12.1px;
+			margin-top: 10px;
+		}
+		.category-wrapper {
+			margin-top: 40px;
+			app-workout-card {
+				display: block;
+				margin-bottom: 16px;
+			}
+			.exercises {
+				&:last-child {
+					hr {
+						display: none;
+					}
+				}
+				.page-title {
+					margin-top: 0;
+					font-size: 16px;
+					margin-bottom: 7px;
+				}
+				app-workout-card {
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+				hr {
+					margin: 40px 0 35px;
+				}
+			}
+			.card {
+				margin-bottom: 20px;
+				ion-item {
+					--background: var(--ion-color-tertiary);
+					.image {
+						min-height: 177px;
+					}
+				}
+			}
+		}
+		.liberate {
+			background-color: var(--ion-color-tertiary);
+			margin-top: 47px;
+			padding: 40px 40px 40px 40px;
+			.ply-life-icon {
+				text-align: right;
+				margin-bottom: 24px;
+				img {
+					max-width: 49px;
+					margin-right: -25px;
+				}
+			}
+			.ply-graphic {
+				text-align: center;
+				margin-bottom: 34px;
+				img {
+					width: 128px;
+				}
+			}
+			.subscribe-to-ply-btn {
+				display: block;
+				width: 100%;
+				text-align: center;
+				background-color: transparent;
+				margin-bottom: 0;
+				img {
+					max-width: 250px;
+				}
+			}
+			p {
+				text-align: center;
+				color: var(--ion-color-primary);
+				font-size: 12.9px;
+				margin: 0;
+				strong {
+					display: block;
+				}
+			}
+		}
+	}
+}

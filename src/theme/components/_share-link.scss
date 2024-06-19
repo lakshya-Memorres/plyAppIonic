@@ -1,0 +1,17 @@
+.share-link {
+	a {
+		display: flex;
+		flex-direction: row;
+		color: var(--text-color);
+		font-size: 12.68px;
+		font-weight: bold;
+		align-items: center;
+		text-transform: capitalize;
+		justify-content: flex-end;
+		img {
+			margin-left: 13px;
+			width: 25px;
+			height: 25px;
+		}
+	}
+}

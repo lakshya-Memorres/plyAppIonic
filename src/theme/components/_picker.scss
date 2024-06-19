@@ -1,0 +1,23 @@
+.picker {
+	--background: var(--ion-color-tertiary) !important;
+}
+.picker-wrapper,
+.picker-toolbar {
+	border: none !important;
+}
+.picker-wrapper,
+.picker-col,
+.picker-above-highlight,
+.picker-below-highlight {
+	background: var(--ion-color-tertiary) !important;
+}
+.picker-above-highlight,
+.picker-below-highlight {
+	opacity: 0.5;
+	border-color: #fff !important;
+}
+.picker-opts {
+	button {
+		color: var(--ion-color-primary) !important;
+	}
+}

@@ -1,0 +1,23 @@
+plyr {
+	height: auto;
+	width: 100% !important;
+	--plyr-color-main: var(--ion-color-secondary);
+	--plyr-video-background: var(--ion-color-secondary);
+	--plyr-video-controls-background: var(--ion-color-primary);
+	--plyr-video-control-color: var(--ion-color-tertiary);
+	--plyr-video-control-background: var(--ion-color-primary);
+	--plyr-video-control-color: var(--ion-color-tertiary);
+}
+.plyr__control {
+	background: var(--ion-color-primary);
+	&:hover {
+		background: var(--ion-color-primary);
+	}
+}
+.plyr__controls {
+	padding: 10px 10px !important;
+}
+
+.plyr--fullscreen-fallback {
+	display: flex !important;
+}

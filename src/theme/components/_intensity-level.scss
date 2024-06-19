@@ -1,0 +1,44 @@
+.intensity-level {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	&-rating {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-direction: row;
+		margin-right: 7px;
+		&.level-1 {
+			li:nth-child(1) {
+				opacity: 1;
+			}
+		}
+		&.level-2 {
+			li:nth-child(-n + 2) {
+				opacity: 1;
+			}
+		}
+		&.level-3 {
+			li:nth-child(-n + 3) {
+				opacity: 1;
+			}
+		}
+		li {
+			width: 4px;
+			height: 4px;
+			background-color: var(--ion-color-primary);
+			opacity: 0.32;
+			margin-right: 3px;
+			border-radius: 100%;
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+	&-label {
+		font-size: 10px;
+		font-weight: 600;
+		line-height: 1.2;
+	}
+}

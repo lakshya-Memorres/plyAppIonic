@@ -1,0 +1,46 @@
+.pb-list {
+	//padding: 0 10px;
+	padding: 0 2px;
+	.pb-list-category {
+		font-weight: 600;
+		font-size: 10px;
+		color: var(-text--color);
+		margin-bottom: 22px;
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+		li {
+			margin-bottom: 30px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+			.pb-list-exercie-title {
+				font-size: 16px;
+				color: var(-text--color);
+			}
+			.link {
+				flex-direction: row;
+				display: flex;
+				align-items: center;
+				margin-bottom: 0px;
+				a {
+					line-height: 1;
+					display: block;
+					margin-left: 10px;
+					margin-top: 2px;
+					img {
+						width: 24px;
+						height: 24px;
+					}
+				}
+			}
+			.last-completed {
+				line-height: 1;
+				font-weight: 500;
+				font-size: 10px;
+				color: var(--text-color);
+			}
+		}
+	}
+}

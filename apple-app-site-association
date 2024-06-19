@@ -1,0 +1,26 @@
+{
+	"applinks": {
+		"details": [
+			{
+				"appIDs": [
+					"YZC4YSVBJ9.life.ply.app"
+				],
+				"components": [
+					{
+						"/": "/*"
+					}
+				]
+			}
+		]
+	},
+	"webcredentials": {
+		"apps": [
+			"YZC4YSVBJ9.life.ply.app"
+		]
+	},
+	"appclips": {
+		"apps": [
+			"YZC4YSVBJ9.life.ply.app.appClip"
+		]
+	}
+}

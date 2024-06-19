@@ -1,0 +1,47 @@
+<ion-content>
+	<div class="container-no-padding page-scrollable">
+		<div class="container">
+			<div class="ply-logo">
+				<img src="/assets/images/ply-logo.svg" />
+			</div>
+			<ion-spinner *ngIf="loading == true" name="dots"></ion-spinner>
+		</div>
+
+		<ng-container *ngIf="loading == false">
+			<app-main-slider title="Features." [featuredWorkouts]="featuredWorkouts"></app-main-slider>
+
+			<div class="custom-workouts category-slider" *ngIf="customWorkouts.length > 0">
+				<div class="category-slider-header container">
+					<div class="category-slider-header-title">My Custom Workouts</div>
+					<div class="category-slider-header-link">
+						<a (click)="goToCustomWorkouts()">See all</a>
+					</div>
+				</div>
+				<div class="category-slider-wrapper">
+					<ng-container *ngFor="let workout of customWorkouts; let i=index">
+						<a (click)="goToWorkout(workout)" class="category-slider-card" [ngClass]="{'is_premium' : userSubscription == null && workout.is_premium == 1 || userSubscription == 0 && workout.is_premium == 1 }">
+							<div class="category-slider-card-image" style="background-image: url('{{workout.images.card}}')"></div>
+							<div class="category-slider-card-content">
+								<h2 class="category-slider-card-content-title">
+									<strong>{{workout.name}}</strong>
+								</h2>
+								<div class="category-slider-card-content-subtitle">
+									<strong>{{workout.top_level_category.name}}.</strong>
+									<span>{{workout.workout_category.name}}</span>
+								</div>
+							</div>
+						</a>
+					</ng-container>
+					<div class="spacer"></div>
+				</div>
+			</div>
+
+			<app-category-slider *ngFor="let category of workoutCategories; let i = index" [workoutCategory]="category" overflow="true" [userSubscription]="userSubscription" [keyExists]="keyExists"></app-category-slider>
+			<!-- <app-ply-life class="text-align-right"></app-ply-life> -->
+		</ng-container>
+	</div>
+	<ng-container *ngIf="loading == false">
+		<app-subscription type="noChallenge" [userSubscription]="userSubscription" [keyExists]="keyExists"></app-subscription>
+	</ng-container>
+</ion-content>
+<app-tabs selectedIndex="0" slot="fixed"></app-tabs>

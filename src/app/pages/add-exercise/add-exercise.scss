@@ -1,0 +1,15 @@
+@import "../../../theme/utilities/mixins";
+
+.container {
+	&.ion-margin-bottom {
+		margin-bottom: var(--ion-margin, 45px);
+	}
+	&.ion-margin-top {
+		margin-top: var(--ion-margin, 34px);
+	}
+}
+
+.category-wrapper {
+	transition: all 0.2s ease;
+	height: 100%;
+}

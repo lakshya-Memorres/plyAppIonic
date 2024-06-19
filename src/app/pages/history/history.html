@@ -1,0 +1,93 @@
+<ion-content  #content>
+	<div class="container page-scrollable">
+		<app-back-button (click)="goBack()"></app-back-button>
+		<div class="ply-logo text-align-right">
+			<img src="/assets/images/ply-logo.svg" />
+		</div>
+		<div class="page-title">History.</div>
+		<!-- <div class="page-subtitle">
+			<strong>Review your progress,</strong> assess your training, examine
+			your results, train smarter.
+		</div> -->
+		<ng-container *ngIf="categoryLoading == false">
+			<div class="exercise-filter">
+				<div class="title">Filter by Category:</div>
+				<ul>
+					<li
+						*ngFor="let category of workoutCategories; let i = index"
+						(click)="showActivity(category)"
+						[class.active]="selectedCategory.name == category.name"
+					>
+						{{category.name}}.
+					</li>
+				</ul>
+			</div>
+		</ng-container>
+		<ion-spinner
+			*ngIf="loading == true || categoryLoading == true"
+			name="dots"
+		></ion-spinner>
+		<ng-container *ngIf="loading == false">
+			<div class="content">
+				<div class="no-results" *ngIf="emptyResults == true">
+					No Workouts Completed.
+				</div>
+				<ng-container *ngFor="let historyItem of history; let i = index;">
+					<div
+						class="category-wrapper"
+						[class.show]="historyItem.category.name == selectedCategory.name"
+					>
+
+						<div class="workout-sep-title">
+							{{ historyItem.within8Weeks.length > 0 ? 'Recent Workouts Completed.' : 'No Recent Workouts Completed.' }}
+						</div>
+						<ng-container *ngFor="let day of historyItem.within8Weeks; let i = index;">
+							<div class="date-title">
+								{{ formatDate(day.values[0].finished_at) }}.
+							</div>
+							<div class="exercises" *ngFor="let completedWorkout of day.values">
+								<app-workout-card
+									(click)="goToPreviouslyCompletedWorkout(completedWorkout)"
+									[workout]="completedWorkout"
+								></app-workout-card>
+							</div>
+							<hr class="date-sep" *ngIf="historyItem.within8Weeks.length > 1" />
+						</ng-container>
+
+						<hr class="date-sep"  *ngIf="historyItem.within8Weeks.length <= 1"  />
+
+						<div class="workout-sep-title">
+							{{ historyItem.olderThan8Weeks.length > 0 ? 'Older Workouts Completed.' : 'No Older Workouts Completed.' }}
+						</div>
+
+						<ng-container *ngFor="let day of historyItem.olderThan8Weeks; let i = index;">
+							<div class="date-title">
+								{{ formatDate(day.values[0].finished_at) }}.
+							</div>
+							<div class="exercises" *ngFor="let completedWorkout of day.values">
+								<app-workout-card
+									(click)="goToPreviouslyCompletedWorkout(completedWorkout)"
+									[workout]="completedWorkout"
+								></app-workout-card>
+							</div>
+							<hr class="date-sep" *ngIf="historyItem.olderThan8Weeks.length !== i" />
+						</ng-container>
+
+						<ion-infinite-scroll
+							threshold="10px"
+							(ionInfinite)="getMoreHistory($event)"
+						>
+							<ion-infinite-scroll-content
+								loadingSpinner="bubbles"
+								loadingText="Loading more data..."
+							>
+							</ion-infinite-scroll-content>
+						</ion-infinite-scroll>
+					</div>
+				</ng-container>
+			</div>
+		</ng-container>
+		<app-ply-life class="text-align-right"></app-ply-life>
+	</div>
+</ion-content>
+<app-tabs selectedIndex="1" slot="fixed"></app-tabs>
