@@ -5677,7 +5677,6 @@ let DashboardPage = class DashboardPage {
     }
     ngOnInit() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            console.log('asdasdasndjasnkjdnsakjndksaj');
             this.commonActions.showLoading();
             this.checkIfKeyExistsInStorage('originalUser');
             this.userSubscription = yield this.commonActions.checkSubscription();
@@ -5689,7 +5688,6 @@ let DashboardPage = class DashboardPage {
         });
     }
     ngOnDestroy() {
-        console.log('asdasdasndjasnkjdnsakjndksaj');
         if (this.storageSubscription) {
             this.storageSubscription.unsubscribe();
         }

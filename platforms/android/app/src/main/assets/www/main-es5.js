@@ -9170,27 +9170,26 @@
               return _regeneratorRuntime().wrap(function _callee62$(_context62) {
                 while (1) switch (_context62.prev = _context62.next) {
                   case 0:
-                    console.log('asdasdasndjasnkjdnsakjndksaj');
                     this.commonActions.showLoading();
                     this.checkIfKeyExistsInStorage('originalUser');
-                    _context62.next = 5;
+                    _context62.next = 4;
                     return this.commonActions.checkSubscription();
 
-                  case 5:
+                  case 4:
                     this.userSubscription = _context62.sent;
-                    _context62.next = 8;
+                    _context62.next = 7;
                     return this.getDashboardContent();
 
-                  case 8:
-                    _context62.next = 10;
+                  case 7:
+                    _context62.next = 9;
                     return this.getCustomWorkouts();
 
-                  case 10:
+                  case 9:
                     this.analyticsService.trackScreen('home');
                     this.commonActions.hideLoading();
                     this.loading = false;
 
-                  case 13:
+                  case 12:
                   case "end":
                     return _context62.stop();
                 }
@@ -9200,8 +9199,6 @@
         }, {
           key: "ngOnDestroy",
           value: function ngOnDestroy() {
-            console.log('asdasdasndjasnkjdnsakjndksaj');
-
             if (this.storageSubscription) {
               this.storageSubscription.unsubscribe();
             }
